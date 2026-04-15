@@ -15,6 +15,14 @@
             color: #22c55e;
         }
 
+        /* TIMER */
+        #timer {
+            font-size: 22px;
+            font-weight: bold;
+            margin: 10px;
+            color: #facc15;
+        }
+
         .container {
             display: flex;
             flex-wrap: wrap;
@@ -24,7 +32,7 @@
 
         .card {
             width: 200px;
-            height: 260px;
+            height: 300px;
             perspective: 1000px;
         }
 
@@ -52,8 +60,22 @@
 
         .card-front img {
             width: 100%;
-            height: 200px;
+            height: 160px;
             object-fit: cover;
+        }
+
+        .price {
+            font-size: 18px;
+            font-weight: bold;
+            color: #22c55e;
+            margin: 5px 0;
+        }
+
+        .old-price {
+            text-decoration: line-through;
+            color: #94a3b8;
+            font-size: 14px;
+            margin-left: 5px;
         }
 
         .card-front button {
@@ -106,6 +128,8 @@
 
 <h1>🔥 TSK Free Fire Account Store 🔥</h1>
 
+<div id="timer">⏳ Offer ends in: 24:00:00</div>
+
 <div class="container">
 
 <!-- Account 1 -->
@@ -113,19 +137,16 @@
     <div class="card-inner">
         <div class="card-front">
             <img src="acc1.jpg">
-            <button onclick="event.stopPropagation(); openPopup('Free Fire Account Level 70')">Buy Now</button>
+            <p class="price">₹3500 <span class="old-price">₹4500</span></p>
+            <button onclick="event.stopPropagation(); openPopup('Account 1 - ₹999')">Buy Now</button>
         </div>
         <div class="card-back">
             <h3>FF Account #1</h3>
-            • Level: 65+<br>
-            • Skins: 100+ 🔥<br>
-            • Evo Gun: Yes<br>
-            • Elite Pass: Active<br>
+            • Level 65<br>
+            • 100+ Skins<br>
+            • Evo Gun<br>
             • Rare Bundles<br>
-            • Emotes: 50+<br>
-            • Diamonds Used Account<br>
-            • Full Access ID
-            PRIME 5
+            • Full Access
         </div>
     </div>
 </div>
@@ -135,17 +156,15 @@
     <div class="card-inner">
         <div class="card-front">
             <img src="acc2.jpg">
-            <button onclick="event.stopPropagation(); openPopup('Free Fire Account Level 65')">Buy Now</button>
+            <p class="price">₹799 <span class="old-price">₹1199</span></p>
+            <button onclick="event.stopPropagation(); openPopup('Account 2 - ₹799')">Buy Now</button>
         </div>
         <div class="card-back">
             <h3>FF Account #2</h3>
-            • Level: 65+<br>
-            • Skins: 80+<br>
+            • Level 65+<br>
+            • 80+ Skins<br>
             • Evo Gun Max<br>
             • Rare Emotes<br>
-            • Headshot Rate High<br>
-            • Grandmaster Rank<br>
-            • Stylish Name<br>
             • Full Access
         </div>
     </div>
@@ -156,17 +175,15 @@
     <div class="card-inner">
         <div class="card-front">
             <img src="acc3.jpg">
-            <button onclick="event.stopPropagation(); openPopup('Free Fire Account Level 75')">Buy Now</button>
+            <p class="price">₹1299 <span class="old-price">₹1799</span></p>
+            <button onclick="event.stopPropagation(); openPopup('Account 3 - ₹1299')">Buy Now</button>
         </div>
         <div class="card-back">
             <h3>FF Account #3</h3>
-            • Level: 75+<br>
-            • Skins: 120+ 🔥<br>
-            • Evo Guns: 2<br>
+            • Level 75+<br>
+            • 120+ Skins<br>
+            • 2 Evo Guns<br>
             • Legendary Bundles<br>
-            • KD High<br>
-            • Rare Collection<br>
-            • Fast Gameplay<br>
             • Secure ID
         </div>
     </div>
@@ -177,17 +194,15 @@
     <div class="card-inner">
         <div class="card-front">
             <img src="acc4.jpg">
-            <button onclick="event.stopPropagation(); openPopup('Free Fire Account Level 60')">Buy Now</button>
+            <p class="price">₹599 <span class="old-price">₹899</span></p>
+            <button onclick="event.stopPropagation(); openPopup('Account 4 - ₹599')">Buy Now</button>
         </div>
         <div class="card-back">
             <h3>FF Account #4</h3>
-            • Level: 60+<br>
-            • Skins: 70+<br>
-            • Rare Gun Skins<br>
-            • Elite Pass Old<br>
-            • Good Rank<br>
-            • Smooth Gameplay<br>
+            • Level 60+<br>
+            • 70+ Skins<br>
             • Budget Account<br>
+            • Smooth Gameplay<br>
             • Full Access
         </div>
     </div>
@@ -198,7 +213,7 @@
 <br>
 <button onclick="window.location.href='page2.html'">Next Page →</button>
 
-<!-- WhatsApp Popup -->
+<!-- Popup -->
 <div id="popup" class="popup">
     <div class="popup-content">
         <h3>Select Seller</h3>
@@ -211,10 +226,12 @@
 <script>
 let selectedProduct = "";
 
+// Flip
 function flipCard(card) {
     card.classList.toggle("active");
 }
 
+// Popup
 function openPopup(product) {
     selectedProduct = product;
     document.getElementById("popup").style.display = "block";
@@ -224,9 +241,10 @@ function closePopup() {
     document.getElementById("popup").style.display = "none";
 }
 
+// WhatsApp
 function sendWhatsApp(option) {
-    let number1 = "919042458779"; // TSK number
-    let number2 = "9173392 13791"; // Zoro number
+    let number1 = "919042458779";
+    let number2 = "917339213791";
 
     let message = "I want to buy " + selectedProduct;
 
@@ -236,6 +254,29 @@ function sendWhatsApp(option) {
 
     window.location.href = url;
 }
+
+/* 🔥 24-HOUR TIMER */
+let timeLeft = 24 * 60 * 60;
+
+function startTimer() {
+    let hours = Math.floor(timeLeft / 3600);
+    let minutes = Math.floor((timeLeft % 3600) / 60);
+    let seconds = timeLeft % 60;
+
+    document.getElementById("timer").innerHTML =
+        "⏳ Offer ends in: " +
+        String(hours).padStart(2,'0') + ":" +
+        String(minutes).padStart(2,'0') + ":" +
+        String(seconds).padStart(2,'0');
+
+    if (timeLeft > 0) {
+        timeLeft--;
+    } else {
+        document.getElementById("timer").innerHTML = "❌ Offer Expired!";
+    }
+}
+
+setInterval(startTimer, 1000);
 </script>
 
 </body>
