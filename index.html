@@ -13,13 +13,12 @@ body {
     text-align: center;
 }
 
-/* ✅ LOGO */
+/* LOGO */
 .logo {
     width: 120px;
     margin-top: 10px;
 }
 
-/* TITLE */
 h1{
     padding: 5px;
     color: #ff4d4d;
@@ -36,7 +35,6 @@ h1{
 
 /* CARD */
 .card{
-    width: 100%;
     border-radius: 15px;
 }
 
@@ -112,18 +110,16 @@ h1{
     font-size: 13px;
 }
 
-.sale{
+/* TIMER */
+.timer{
     margin-top: 8px;
     font-size: 13px;
     color: #ffcc00;
     font-weight: bold;
+    text-align: center;
 }
 
-/* BUY BUTTON */
-.buy-section{
-    padding: 10px;
-}
-
+/* BUY BUTTON (NOW WHATSAPP BUTTON) */
 .buy-btn{
     width: 100%;
     padding: 12px;
@@ -133,13 +129,13 @@ h1{
     color: white;
     font-size: 16px;
     border-radius: 6px;
+    margin-top: 8px;
 }
 </style>
 </head>
 
 <body>
 
-<!-- ✅ LOGO -->
 <img src="logo.png" class="logo">
 
 <h1>🔥 TSK Free Fire Account Store 🔥</h1>
@@ -148,6 +144,7 @@ h1{
 
 <!-- CARD 1 -->
 <div class="card">
+
 <div class="inner" onclick="flip(this)">
 <div class="flip-box">
 
@@ -155,21 +152,32 @@ h1{
 
 <div class="back">
 <h3>Account 1</h3>
-<div class="desc">✔ Rare Skins<br>✔ Level 70+<br>✔ High Rank</div>
+
+<div class="desc">
+✔ Rare Skins<br>
+✔ Level 70+ Account<br>
+✔ High Rank ID<br>
+✔ Full Access
+</div>
+
 <p class="price">₹999 <span class="old-price">₹1499</span></p>
-<div class="sale">⏳ 24H Sale</div>
-</div>
+
+<div class="timer">⏳ Sale Ends In: <span id="t1"></span></div>
 
 </div>
 </div>
-
-<div class="buy-section">
-<button class="buy-btn" onclick="openPopup('Account 1 - ₹999')">Buy Now</button>
 </div>
+
+<!-- ✅ BUY NOW = WHATSAPP -->
+<button class="buy-btn" onclick="buy('Account 1 - ₹999')">
+Buy Now
+</button>
+
 </div>
 
 <!-- CARD 2 -->
 <div class="card">
+
 <div class="inner" onclick="flip(this)">
 <div class="flip-box">
 
@@ -177,21 +185,29 @@ h1{
 
 <div class="back">
 <h3>Account 2</h3>
-<div class="desc">✔ Legendary Skins<br>✔ Premium ID</div>
+
+<div class="desc">
+✔ Legendary Skins<br>
+✔ Premium ID
+</div>
+
 <p class="price">₹799 <span class="old-price">₹1199</span></p>
-<div class="sale">⏳ 24H Sale</div>
-</div>
+
+<div class="timer">⏳ Sale Ends In: <span id="t2"></span></div>
 
 </div>
 </div>
-
-<div class="buy-section">
-<button class="buy-btn" onclick="openPopup('Account 2 - ₹799')">Buy Now</button>
 </div>
+
+<button class="buy-btn" onclick="buy('Account 2 - ₹799')">
+Buy Now
+</button>
+
 </div>
 
 <!-- CARD 3 -->
 <div class="card">
+
 <div class="inner" onclick="flip(this)">
 <div class="flip-box">
 
@@ -199,21 +215,29 @@ h1{
 
 <div class="back">
 <h3>Account 3</h3>
-<div class="desc">✔ Rare Bundle<br>✔ Diamond Items</div>
+
+<div class="desc">
+✔ Rare Bundle<br>
+✔ Diamond Items
+</div>
+
 <p class="price">₹1299 <span class="old-price">₹1799</span></p>
-<div class="sale">⏳ 24H Sale</div>
-</div>
+
+<div class="timer">⏳ Sale Ends In: <span id="t3"></span></div>
 
 </div>
 </div>
-
-<div class="buy-section">
-<button class="buy-btn" onclick="openPopup('Account 3 - ₹1299')">Buy Now</button>
 </div>
+
+<button class="buy-btn" onclick="buy('Account 3 - ₹1299')">
+Buy Now
+</button>
+
 </div>
 
 <!-- CARD 4 -->
 <div class="card">
+
 <div class="inner" onclick="flip(this)">
 <div class="flip-box">
 
@@ -221,60 +245,65 @@ h1{
 
 <div class="back">
 <h3>Account 4</h3>
-<div class="desc">✔ Elite Pass Items<br>✔ Rare Gun Skins</div>
+
+<div class="desc">
+✔ Elite Pass<br>
+✔ Rare Skins
+</div>
+
 <p class="price">₹599 <span class="old-price">₹999</span></p>
-<div class="sale">⏳ 24H Sale</div>
-</div>
+
+<div class="timer">⏳ Sale Ends In: <span id="t4"></span></div>
 
 </div>
 </div>
-
-<div class="buy-section">
-<button class="buy-btn" onclick="openPopup('Account 4 - ₹599')">Buy Now</button>
-</div>
 </div>
 
+<button class="buy-btn" onclick="buy('Account 4 - ₹599')">
+Buy Now
+</button>
+
 </div>
 
-<!-- POPUP -->
-<div id="popup" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.8);">
-<div style="background:white;color:black;padding:20px;margin:40% auto;width:80%;border-radius:10px;">
-<h3>Select Seller</h3>
-<button onclick="sendWhatsApp(1)">TSK Gaming</button>
-<button onclick="sendWhatsApp(2)">Zoro Gaming</button>
-<button onclick="closePopup()">Cancel</button>
-</div>
 </div>
 
 <script>
-
-let selectedProduct="";
 
 function flip(el){
     el.classList.toggle("flip-active");
 }
 
-function openPopup(p){
-    selectedProduct=p;
-    document.getElementById("popup").style.display="block";
-}
+/* WHATSAPP DIRECT BUY */
+function buy(product){
 
-function closePopup(){
-    document.getElementById("popup").style.display="none";
-}
-
-function sendWhatsApp(opt){
     let n1="919042458779";
-    let n2="917339213791";
+    let msg="🔥 I want to buy "+product;
 
-    let msg="🔥 I want to buy "+selectedProduct;
-
-    let url = opt===1
-    ? `https://wa.me/${n1}?text=${encodeURIComponent(msg)}`
-    : `https://wa.me/${n2}?text=${encodeURIComponent(msg)}`;
+    let url=`https://wa.me/${n1}?text=${encodeURIComponent(msg)}`;
 
     window.location.href=url;
 }
+
+/* TIMER */
+let time = 24*60*60;
+
+function format(s){
+    let h=Math.floor(s/3600);
+    let m=Math.floor((s%3600)/60);
+    let sec=s%60;
+    return `${String(h).padStart(2,'0')}:${String(m).padStart(2,'0')}:${String(sec).padStart(2,'0')}`;
+}
+
+function updateTimer(){
+    if(time>0) time--;
+
+    document.getElementById("t1").innerHTML=format(time);
+    document.getElementById("t2").innerHTML=format(time);
+    document.getElementById("t3").innerHTML=format(time);
+    document.getElementById("t4").innerHTML=format(time);
+}
+
+setInterval(updateTimer,1000);
 
 </script>
 
