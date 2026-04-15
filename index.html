@@ -13,9 +13,17 @@ body {
     text-align: center;
 }
 
+/* ✅ LOGO */
+.logo {
+    width: 120px;
+    margin-top: 10px;
+}
+
+/* TITLE */
 h1{
-    padding: 10px;
+    padding: 5px;
     color: #ff4d4d;
+    font-size: 20px;
 }
 
 /* GRID */
@@ -30,18 +38,16 @@ h1{
 .card{
     width: 100%;
     border-radius: 15px;
-    overflow: hidden;
 }
 
-/* FLIP AREA ONLY (IMAGE) */
+/* FLIP AREA */
 .inner{
     width: 100%;
     height: 340px;
-    position: relative;
     perspective: 1000px;
+    position: relative;
 }
 
-/* FLIP */
 .inner.flip-active .flip-box{
     transform: rotateY(180deg);
 }
@@ -61,10 +67,11 @@ h1{
     height: 100%;
     border-radius: 15px;
     backface-visibility: hidden;
+    overflow: hidden;
     box-shadow: 0 0 15px rgba(255,0,0,0.6);
 }
 
-/* FRONT IMAGE */
+/* IMAGE */
 .front img{
     width: 100%;
     height: 100%;
@@ -112,7 +119,7 @@ h1{
     font-weight: bold;
 }
 
-/* ✅ BUY BUTTON (STATIC - NOT FLIPPING) */
+/* BUY BUTTON */
 .buy-section{
     padding: 10px;
 }
@@ -126,12 +133,14 @@ h1{
     color: white;
     font-size: 16px;
     border-radius: 6px;
-    cursor: pointer;
 }
 </style>
 </head>
 
 <body>
+
+<!-- ✅ LOGO -->
+<img src="logo.png" class="logo">
 
 <h1>🔥 TSK Free Fire Account Store 🔥</h1>
 
@@ -139,91 +148,102 @@ h1{
 
 <!-- CARD 1 -->
 <div class="card">
+<div class="inner" onclick="flip(this)">
+<div class="flip-box">
 
-    <!-- FLIP IMAGE ONLY -->
-    <div class="inner" onclick="flip(this)">
-        <div class="flip-box">
+<div class="front"><img src="acc1.jpg"></div>
 
-            <div class="front">
-                <img src="acc1.jpg">
-            </div>
+<div class="back">
+<h3>Account 1</h3>
+<div class="desc">✔ Rare Skins<br>✔ Level 70+<br>✔ High Rank</div>
+<p class="price">₹999 <span class="old-price">₹1499</span></p>
+<div class="sale">⏳ 24H Sale</div>
+</div>
 
-            <div class="back">
-                <h3>Account 1</h3>
+</div>
+</div>
 
-                <div class="desc">
-                    ✔ Rare Skins<br>
-                    ✔ Level 70+ Account<br>
-                    ✔ High Rank ID<br>
-                    ✔ Full Access
-                </div>
-
-                <p class="price">₹999 <span class="old-price">₹1499</span></p>
-
-                <div class="sale">
-                    ⏳ Sale ends in: <span id="t1">24:00:00</span>
-                </div>
-            </div>
-
-        </div>
-    </div>
-
-    <!-- ✅ BUY BUTTON OUTSIDE FLIP -->
-    <div class="buy-section">
-        <button class="buy-btn" onclick="openPopup('Account 1 - ₹999')">
-            Buy Now
-        </button>
-    </div>
-
+<div class="buy-section">
+<button class="buy-btn" onclick="openPopup('Account 1 - ₹999')">Buy Now</button>
+</div>
 </div>
 
 <!-- CARD 2 -->
 <div class="card">
+<div class="inner" onclick="flip(this)">
+<div class="flip-box">
 
-    <div class="inner" onclick="flip(this)">
-        <div class="flip-box">
+<div class="front"><img src="acc2.jpg"></div>
 
-            <div class="front">
-                <img src="acc2.jpg">
-            </div>
+<div class="back">
+<h3>Account 2</h3>
+<div class="desc">✔ Legendary Skins<br>✔ Premium ID</div>
+<p class="price">₹799 <span class="old-price">₹1199</span></p>
+<div class="sale">⏳ 24H Sale</div>
+</div>
 
-            <div class="back">
-                <h3>Account 2</h3>
+</div>
+</div>
 
-                <div class="desc">
-                    ✔ Legendary Skins<br>
-                    ✔ Premium ID<br>
-                    ✔ High Rank
-                </div>
+<div class="buy-section">
+<button class="buy-btn" onclick="openPopup('Account 2 - ₹799')">Buy Now</button>
+</div>
+</div>
 
-                <p class="price">₹799 <span class="old-price">₹1199</span></p>
+<!-- CARD 3 -->
+<div class="card">
+<div class="inner" onclick="flip(this)">
+<div class="flip-box">
 
-                <div class="sale">
-                    ⏳ Sale ends in: <span id="t2">24:00:00</span>
-                </div>
-            </div>
+<div class="front"><img src="acc3.jpg"></div>
 
-        </div>
-    </div>
+<div class="back">
+<h3>Account 3</h3>
+<div class="desc">✔ Rare Bundle<br>✔ Diamond Items</div>
+<p class="price">₹1299 <span class="old-price">₹1799</span></p>
+<div class="sale">⏳ 24H Sale</div>
+</div>
 
-    <div class="buy-section">
-        <button class="buy-btn" onclick="openPopup('Account 2 - ₹799')">
-            Buy Now
-        </button>
-    </div>
+</div>
+</div>
 
+<div class="buy-section">
+<button class="buy-btn" onclick="openPopup('Account 3 - ₹1299')">Buy Now</button>
+</div>
+</div>
+
+<!-- CARD 4 -->
+<div class="card">
+<div class="inner" onclick="flip(this)">
+<div class="flip-box">
+
+<div class="front"><img src="acc4.jpg"></div>
+
+<div class="back">
+<h3>Account 4</h3>
+<div class="desc">✔ Elite Pass Items<br>✔ Rare Gun Skins</div>
+<p class="price">₹599 <span class="old-price">₹999</span></p>
+<div class="sale">⏳ 24H Sale</div>
+</div>
+
+</div>
+</div>
+
+<div class="buy-section">
+<button class="buy-btn" onclick="openPopup('Account 4 - ₹599')">Buy Now</button>
+</div>
 </div>
 
 </div>
 
 <!-- POPUP -->
 <div id="popup" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.8);">
-    <div style="background:white;color:black;padding:20px;margin:40% auto;width:80%;border-radius:10px;">
-        <h3>Select Seller</h3>
-        <button onclick="sendWhatsApp(1)">TSK Gaming</button>
-        <button onclick="sendWhatsApp(2)">Zoro Gaming</button>
-        <button onclick="closePopup()">Cancel</button>
-    </div>
+<div style="background:white;color:black;padding:20px;margin:40% auto;width:80%;border-radius:10px;">
+<h3>Select Seller</h3>
+<button onclick="sendWhatsApp(1)">TSK Gaming</button>
+<button onclick="sendWhatsApp(2)">Zoro Gaming</button>
+<button onclick="closePopup()">Cancel</button>
+</div>
 </div>
 
 <script>
@@ -255,25 +275,6 @@ function sendWhatsApp(opt){
 
     window.location.href=url;
 }
-
-/* TIMER */
-let t=24*60*60;
-
-function runTimer(){
-    function format(s){
-        let h=Math.floor(s/3600);
-        let m=Math.floor((s%3600)/60);
-        let sec=s%60;
-        return String(h).padStart(2,'0')+":"+String(m).padStart(2,'0')+":"+String(sec).padStart(2,'0');
-    }
-
-    if(t>0) t--;
-
-    document.getElementById("t1").innerHTML=format(t);
-    document.getElementById("t2").innerHTML=format(t);
-}
-
-setInterval(runTimer,1000);
 
 </script>
 
