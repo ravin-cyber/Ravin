@@ -13,134 +13,121 @@ body {
     text-align: center;
 }
 
-/* LOGO */
 .logo {
     width: 120px;
     margin-top: 10px;
 }
 
-/* TITLE */
 h1{
-    padding: 5px;
-    color: #ff4d4d;
-    font-size: 20px;
+    color:#ff4d4d;
+    font-size:20px;
 }
 
 /* GRID */
 .container{
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 15px;
-    padding: 10px;
+    display:grid;
+    grid-template-columns:1fr;
+    gap:15px;
+    padding:10px;
 }
 
 /* CARD */
 .card{
-    border-radius: 15px;
+    width:100%;
 }
 
-/* FLIP AREA */
+/* INNER (CLICK AREA) */
 .inner{
-    width: 100%;
-    height: 340px;
-    perspective: 1000px;
-    position: relative;
+    width:100%;
+    height:340px;
+    perspective:1000px;
 }
 
-/* FLIP EFFECT ONLY FOR BOX */
-.inner.flip-active .flip-box{
-    transform: rotateY(180deg);
-}
-
+/* FLIP BOX */
 .flip-box{
-    width: 100%;
-    height: 100%;
-    position: relative;
-    transition: transform 0.8s;
-    transform-style: preserve-3d;
+    width:100%;
+    height:100%;
+    position:relative;
+    transition:transform 0.8s;
+    transform-style:preserve-3d;
+}
+
+/* ACTIVE FLIP */
+.flip-box.flipped{
+    transform:rotateY(180deg);
 }
 
 /* FRONT + BACK */
 .front, .back{
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    border-radius: 15px;
-    backface-visibility: hidden;
-    overflow: hidden;
-    box-shadow: 0 0 15px rgba(255,0,0,0.6);
+    position:absolute;
+    width:100%;
+    height:100%;
+    border-radius:15px;
+    backface-visibility:hidden;
+    overflow:hidden;
+    box-shadow:0 0 15px rgba(255,0,0,0.6);
 }
 
-/* FRONT IMAGE */
+/* FRONT */
 .front{
-    position: relative;
+    position:relative;
 }
 
 .front img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    width:100%;
+    height:100%;
+    object-fit:cover;
 }
 
-/* 🔥 TIMER ON FRONT (VISIBLE ALWAYS) */
+/* TIMER */
 .timer-box{
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    text-align: center;
-    background: rgba(0,0,0,0.6);
-    color: #ffcc00;
-    font-weight: bold;
-    padding: 6px;
-    font-size: 13px;
+    position:absolute;
+    bottom:0;
+    width:100%;
+    background:rgba(0,0,0,0.6);
+    color:#ffcc00;
+    padding:6px;
+    font-size:13px;
+    font-weight:bold;
 }
 
 /* BACK */
 .back{
-    background: #2a0000;
-    transform: rotateY(180deg);
-    padding: 10px;
-    box-sizing: border-box;
-    text-align: left;
+    background:#2a0000;
+    transform:rotateY(180deg);
+    padding:10px;
+    box-sizing:border-box;
 }
 
 .back h3{
-    text-align: center;
-    color: #ff4d4d;
+    color:#ff4d4d;
+    text-align:center;
 }
 
 .desc{
-    font-size: 12px;
-    background: #1a0000;
-    padding: 8px;
-    border-radius: 8px;
-    line-height: 1.4;
+    font-size:12px;
+    background:#1a0000;
+    padding:8px;
+    border-radius:8px;
 }
 
 .price{
-    font-size: 18px;
-    font-weight: bold;
-    color: #ff4d4d;
-}
-
-.old-price{
-    text-decoration: line-through;
-    color: #bbb;
-    font-size: 13px;
+    color:#ff4d4d;
+    font-weight:bold;
+    font-size:18px;
 }
 
 /* BUY BUTTON */
 .buy-btn{
-    width: 100%;
-    padding: 12px;
-    background: #ff1a1a;
-    border: none;
-    font-weight: bold;
-    color: white;
-    font-size: 16px;
-    border-radius: 6px;
-    margin-top: 8px;
+    width:100%;
+    padding:12px;
+    background:#ff1a1a;
+    border:none;
+    color:white;
+    font-weight:bold;
+    font-size:16px;
+    border-radius:6px;
+    margin-top:8px;
 }
 
 /* POPUP */
@@ -163,13 +150,32 @@ h1{
     border-radius:10px;
     text-align:center;
 }
+
+/* QUOTES */
+.quotes{
+    padding:15px;
+    color:#ffcc00;
+    font-size:13px;
+}
+
+/* NEXT BUTTON */
+.next-btn{
+    width:90%;
+    padding:12px;
+    background:#ff1a1a;
+    border:none;
+    color:white;
+    font-weight:bold;
+    font-size:16px;
+    border-radius:6px;
+    margin-bottom:20px;
+}
 </style>
 </head>
 
 <body>
 
 <img src="logo.png" class="logo">
-
 <h1>🔥 TSK Free Fire Account Store 🔥</h1>
 
 <div class="container">
@@ -180,29 +186,15 @@ h1{
 <div class="inner" onclick="flip(this)">
 <div class="flip-box">
 
-<!-- FRONT -->
 <div class="front">
 <img src="acc1.jpg">
-
-<div class="timer-box">
-⏳ Sale Ends: <span id="t1"></span>
+<div class="timer-box">⏳ Sale Ends: <span id="t1"></span></div>
 </div>
 
-</div>
-
-<!-- BACK -->
 <div class="back">
 <h3>Account 1</h3>
-
-<div class="desc">
-✔ Rare Skins<br>
-✔ Level 70+ Account<br>
-✔ High Rank ID<br>
-✔ Full Access
-</div>
-
-<p class="price">₹999 <span class="old-price">₹1499</span></p>
-
+<div class="desc">✔ Rare Skins<br>✔ Level 70+</div>
+<p class="price">₹999</p>
 </div>
 
 </div>
@@ -214,85 +206,62 @@ h1{
 
 <!-- CARD 2 -->
 <div class="card">
-
 <div class="inner" onclick="flip(this)">
 <div class="flip-box">
 
 <div class="front">
 <img src="acc2.jpg">
-
-<div class="timer-box">
-⏳ Sale Ends: <span id="t2"></span>
-</div>
-
+<div class="timer-box">⏳ Sale Ends: <span id="t2"></span></div>
 </div>
 
 <div class="back">
 <h3>Account 2</h3>
-
-<div class="desc">✔ Legendary Skins ✔ Premium ID</div>
-
-<p class="price">₹799 <span class="old-price">₹1199</span></p>
+<div class="desc">✔ Legendary Skins</div>
+<p class="price">₹799</p>
 </div>
 
 </div>
 </div>
 
 <button class="buy-btn" onclick="buy('Account 2 - ₹799')">Buy Now</button>
-
 </div>
 
 <!-- CARD 3 -->
 <div class="card">
-
 <div class="inner" onclick="flip(this)">
 <div class="flip-box">
 
 <div class="front">
 <img src="acc3.jpg">
-
-<div class="timer-box">
-⏳ Sale Ends: <span id="t3"></span>
-</div>
-
+<div class="timer-box">⏳ Sale Ends: <span id="t3"></span></div>
 </div>
 
 <div class="back">
 <h3>Account 3</h3>
-
-<div class="desc">✔ Rare Bundle ✔ Diamond Items</div>
-
-<p class="price">₹1299 <span class="old-price">₹1799</span></p>
+<div class="desc">✔ Rare Bundle</div>
+<p class="price">₹1299</p>
 </div>
 
 </div>
 </div>
 
 <button class="buy-btn" onclick="buy('Account 3 - ₹1299')">Buy Now</button>
-
 </div>
 
 <!-- CARD 4 -->
 <div class="card">
-
 <div class="inner" onclick="flip(this)">
 <div class="flip-box">
 
 <div class="front">
 <img src="acc4.jpg">
-
-<div class="timer-box">
-⏳ Sale Ends: <span id="t4"></span>
-</div>
-
+<div class="timer-box">⏳ Sale Ends: <span id="t4"></span></div>
 </div>
 
 <div class="back">
 <h3>Account 4</h3>
-
-<div class="desc">✔ Elite Pass ✔ Rare Skins</div>
-
-<p class="price">₹599 <span class="old-price">₹999</span></p>
+<div class="desc">✔ Elite Pass</div>
+<p class="price">₹599</p>
 </div>
 
 </div>
@@ -304,58 +273,72 @@ h1{
 
 </div>
 
+<!-- QUOTES -->
+<div class="quotes">
+🔥 “Victory is earned, not given.”<br>
+💀 “Play hard, win harder.”<br>
+🎮 “Legends are made in Free Fire.”<br>
+⚡ “Garena official partner.”
+</div>
+
+<!-- NEXT PAGE -->
+<button class="next-btn" onclick="nextPage()">Next Page ➡</button>
+
 <!-- POPUP -->
 <div id="popup" class="popup">
 <div class="popup-content">
 
 <h3>Select Seller</h3>
-
-<button class="buy-btn" style="background:#ff1a1a;" onclick="sendWhatsApp(1)">TSK Gaming</button>
-
-<button class="buy-btn" style="background:#ffcc00;color:black;" onclick="sendWhatsApp(2)">Zoro Gaming</button>
-
-<button class="buy-btn" style="background:gray;" onclick="closePopup()">Cancel</button>
+<button class="buy-btn" onclick="sendWhatsApp(1)">TSK Gaming</button>
+<button class="buy-btn" onclick="sendWhatsApp(2)">Zoro Gaming</button>
+<button class="buy-btn" onclick="closePopup()" style="background:gray;">Cancel</button>
 
 </div>
 </div>
 
 <script>
 
-let selectedProduct = "";
+let selectedProduct="";
 
-/* FLIP */
+/* FIXED FLIP */
 function flip(el){
-    el.classList.toggle("flip-active");
+    let box = el.querySelector(".flip-box");
+    box.classList.toggle("flipped");
 }
 
 /* BUY */
-function buy(product){
-    selectedProduct = product;
-    document.getElementById("popup").style.display = "block";
+function buy(p){
+    selectedProduct=p;
+    document.getElementById("popup").style.display="block";
 }
 
 /* CLOSE */
 function closePopup(){
-    document.getElementById("popup").style.display = "none";
+    document.getElementById("popup").style.display="none";
 }
 
 /* WHATSAPP */
 function sendWhatsApp(type){
 
-    let n1 = "919042458779";
-    let n2 = "917339213791";
+    let n1="919042458779";
+    let n2="917339213791";
 
-    let msg = "🔥 I want to buy " + selectedProduct;
+    let msg="🔥 I want to buy "+selectedProduct;
 
-    let url = (type === 1)
-        ? `https://wa.me/${n1}?text=${encodeURIComponent(msg)}`
-        : `https://wa.me/${n2}?text=${encodeURIComponent(msg)}`;
+    let url = (type===1)
+    ? `https://wa.me/${n1}?text=${encodeURIComponent(msg)}`
+    : `https://wa.me/${n2}?text=${encodeURIComponent(msg)}`;
 
-    window.location.href = url;
+    window.location.href=url;
+}
+
+/* NEXT PAGE */
+function nextPage(){
+    window.location.href="page2.html";
 }
 
 /* TIMER */
-let time = 24*60*60;
+let t=24*60*60;
 
 function format(s){
     let h=Math.floor(s/3600);
@@ -364,16 +347,16 @@ function format(s){
     return `${String(h).padStart(2,'0')}:${String(m).padStart(2,'0')}:${String(sec).padStart(2,'0')}`;
 }
 
-function updateTimer(){
-    if(time>0) time--;
+function run(){
+    if(t>0) t--;
 
-    document.getElementById("t1").innerHTML = format(time);
-    document.getElementById("t2").innerHTML = format(time);
-    document.getElementById("t3").innerHTML = format(time);
-    document.getElementById("t4").innerHTML = format(time);
+    document.getElementById("t1").innerHTML=format(t);
+    document.getElementById("t2").innerHTML=format(t);
+    document.getElementById("t3").innerHTML=format(t);
+    document.getElementById("t4").innerHTML=format(t);
 }
 
-setInterval(updateTimer,1000);
+setInterval(run,1000);
 
 </script>
 
