@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TSK Free Fire Accounts</title>
+<title>TSK Free Fire Store</title>
 
 <style>
 body{
@@ -31,19 +31,21 @@ h1{
     padding:10px;
 }
 
-/* CARD FIX (IMPORTANT) */
+/* CARD FIXED HEIGHT (IMPORTANT) */
 .card{
     width:100%;
-    height:430px; /* 🔥 FIXED HEIGHT */
-    position:relative;
+    height:430px;
 }
 
-/* INNER WRAPPER */
+/* INNER CENTERING FIX */
 .inner{
     width:100%;
     height:340px;
     perspective:1000px;
-    position:relative;
+
+    display:flex;              /* 🔥 FIX */
+    justify-content:center;    /* 🔥 FIX */
+    align-items:center;       /* 🔥 FIX */
 }
 
 /* FLIP BOX */
@@ -60,7 +62,7 @@ h1{
     transform:rotateY(180deg);
 }
 
-/* FRONT + BACK FIX */
+/* FRONT + BACK */
 .front, .back{
     position:absolute;
     width:100%;
@@ -100,12 +102,11 @@ h1{
     transform:rotateY(180deg);
     padding:10px;
     box-sizing:border-box;
-    text-align:left;
 }
 
 .back h3{
-    text-align:center;
     color:#ff4d4d;
+    text-align:center;
 }
 
 .desc{
@@ -116,12 +117,12 @@ h1{
 }
 
 .price{
-    font-size:18px;
     color:#ff4d4d;
+    font-size:18px;
     font-weight:bold;
 }
 
-/* BUY BUTTON */
+/* BUY */
 .buy-btn{
     width:100%;
     padding:12px;
@@ -153,24 +154,23 @@ h1{
     border-radius:10px;
 }
 
-/* QUOTES */
-.quotes{
-    padding:15px;
-    color:#ffcc00;
-    font-size:13px;
-}
-
-/* NEXT */
+/* NEXT + QUOTES */
 .next-btn{
     width:90%;
     padding:12px;
     background:#ff1a1a;
     border:none;
     color:white;
-    font-size:16px;
     font-weight:bold;
+    font-size:16px;
     border-radius:6px;
     margin-bottom:20px;
+}
+
+.quotes{
+    padding:15px;
+    color:#ffcc00;
+    font-size:13px;
 }
 </style>
 </head>
@@ -178,18 +178,18 @@ h1{
 <body>
 
 <img src="logo.png" class="logo">
-<h1>🔥 TSK Free Fire Account Store 🔥</h1>
+<h1>🔥 TSK Free Fire Store 🔥</h1>
 
 <div class="container">
 
-<!-- CARD -->
+<!-- CARD 1 -->
 <div class="card">
 <div class="inner" onclick="flip(this)">
 <div class="flip-box">
 
 <div class="front">
 <img src="acc1.jpg">
-<div class="timer-box">⏳ Sale Ends: <span id="t1"></span></div>
+<div class="timer-box">⏳ <span id="t1"></span></div>
 </div>
 
 <div class="back">
@@ -211,7 +211,7 @@ h1{
 
 <div class="front">
 <img src="acc2.jpg">
-<div class="timer-box">⏳ Sale Ends: <span id="t2"></span></div>
+<div class="timer-box">⏳ <span id="t2"></span></div>
 </div>
 
 <div class="back">
@@ -233,7 +233,7 @@ h1{
 
 <div class="front">
 <img src="acc3.jpg">
-<div class="timer-box">⏳ Sale Ends: <span id="t3"></span></div>
+<div class="timer-box">⏳ <span id="t3"></span></div>
 </div>
 
 <div class="back">
@@ -255,7 +255,7 @@ h1{
 
 <div class="front">
 <img src="acc4.jpg">
-<div class="timer-box">⏳ Sale Ends: <span id="t4"></span></div>
+<div class="timer-box">⏳ <span id="t4"></span></div>
 </div>
 
 <div class="back">
@@ -272,16 +272,18 @@ h1{
 
 </div>
 
+
 <!-- NEXT -->
 <button class="next-btn" onclick="nextPage()">Next Page ➡</button>
     
- <!-- QUOTES -->
+<!-- QUOTES -->
 <div class="quotes">
-🔥 Victory is earned, not given<br>
-💀 Play hard, win harder<br>
+🔥 Victory is earned<br>
+💀 Play hard win harder<br>
 🎮 Legends are made in Free Fire
 </div>
 
+    
 <!-- POPUP -->
 <div id="popup" class="popup">
 <div class="popup-content">
@@ -296,7 +298,7 @@ h1{
 
 let selectedProduct="";
 
-/* FIXED FLIP (NO DOWN MOVEMENT) */
+/* PERFECT FLIP FIX */
 function flip(el){
     let box = el.querySelector(".flip-box");
     box.classList.toggle("flipped");
@@ -328,7 +330,7 @@ function sendWhatsApp(type){
     window.location.href=url;
 }
 
-/* NEXT PAGE */
+/* NEXT */
 function nextPage(){
     window.location.href="page2.html";
 }
