@@ -37,9 +37,10 @@ h1 {
     cursor: pointer;
 }
 
+/* FLIP AREA */
 .card-inner {
     position: relative;
-    height: 500px; /* 🔥 increased card height */
+    height: 520px;
     transition: 0.8s;
     transform-style: preserve-3d;
 }
@@ -65,20 +66,29 @@ h1 {
     padding: 10px;
 }
 
-/* 🔥 BIGGER IMAGE (LATEST FIX) */
+/* 🔥 BIGGER IMAGE */
 .card-front img {
     width: 100%;
-    height: 340px;   /* 👈 VERY BIG IMAGE */
+    height: 420px;   /* INCREASED */
     object-fit: cover;
-    object-position: center;
+    border-radius: 12px;
 }
 
-/* PRICE */
+/* INFO BELOW CARD */
+.card-info {
+    margin-top: 8px;
+    background: rgba(0,0,0,0.4);
+    padding: 8px;
+    border-radius: 10px;
+}
+
+/* OFFER PRICE */
 .price {
     background: gold;
     color: black;
     font-weight: bold;
     padding: 5px;
+    border-radius: 6px;
 }
 
 /* TIMER */
@@ -90,13 +100,13 @@ h1 {
 
 /* BUY BUTTON */
 .buy-btn {
-    margin: 10px auto;
-    width: 80%;
-    padding: 8px;
+    width: 90%;
+    padding: 10px;
     background: red;
     border: none;
     color: white;
     border-radius: 8px;
+    font-weight: bold;
 }
 
 /* NEXT */
@@ -108,13 +118,6 @@ h1 {
     color: white;
     border-radius: 8px;
     font-weight: bold;
-}
-
-/* FOOTER */
-footer {
-    margin: 15px;
-    font-size: 12px;
-    color: #aaa;
 }
 
 /* POPUP */
@@ -149,6 +152,12 @@ footer {
 .tsk { background:red; color:white; }
 .zoro { background:orange; color:white; }
 .close { background:gray; color:white; }
+
+footer {
+    margin: 15px;
+    font-size: 12px;
+    color: #aaa;
+}
 </style>
 </head>
 
@@ -165,9 +174,6 @@ footer {
 
 <div class="card-front">
 <img src="acc1.jpg">
-<div class="price">₹199 OFFER</div>
-<div class="timer"></div>
-<button class="buy-btn" onclick="event.stopPropagation(); openPopup()">BUY NOW</button>
 </div>
 
 <div class="card-back">
@@ -176,64 +182,88 @@ Rare Skins<br>Elite Pass<br>Heroic Rank
 </div>
 
 </div>
+
+<div class="card-info">
+<div class="price">🔥 OFFER PRICE ₹199</div>
+<div class="timer"></div>
+<button class="buy-btn" onclick="event.stopPropagation(); openPopup()">BUY NOW</button>
+</div>
 </div>
 
 <!-- CARD 2 -->
 <div class="card" onclick="flip(this)">
 <div class="card-inner">
+
 <div class="card-front">
 <img src="acc2.jpg">
-<div class="price">₹299 OFFER</div>
+</div>
+
+<div class="card-back">
+*🦚OP COLLECTION ACCOUNT FOR SALE*
+
+*🚩LVL NEAR 77*
+*⚜️LIKE NEAR 30000*
+*🔱NEAR 7 YEARS OLD*
+
+*🔥400+ VAULT BLUE SHADE WITH HEAVY DRESS COLLECTION FOR BOY AND GIRL*
+
+*🌟HEAVY EMOTE COLLECTION*
+
+*🔥HEAVY GUN COLLECTION*
+
+*🌱1 INTRO & 2 FIST*
+*👾PRIME LVL NEAR 6*
+*❤️‍🩹🌟PRICE AT JUST 4.5K ONLY FIXED AND LAST*
+</div>
+
+</div>
+
+<div class="card-info">
+<div class="price">🔥 OFFER PRICE ₹299</div>
 <div class="timer"></div>
 <button class="buy-btn" onclick="event.stopPropagation(); openPopup()">BUY NOW</button>
-</div>
-<div class="card-back">
-   <br>*🦚OP COLLECTION ACCOUNT FOR SALE*<br>
-
-*🚩LVL NEAR 77*<br>
-    
-*⚜️LIKE NEAR 30000*<br>
-    
-*🔱NEAR 7 YEARS OLD*<br>
-
-*🔥400+ VAULT BLUE SHADE WITH HEAVY DRESS COLLECTION FOR BOY AND GIRL*<br>
-
-*🌟HEAVY EMOTE COLLECTION*<br>
-
-*🔥HEAVY GUN COLLECTION*<br>
-
-*🌱1 INTRO & 2 FIST*<br>
-    
-*👾PRIME LVL NEAR 6*<br>
-    
-*❤️‍🩹🌟PRICE AT JUST 4.5K ONLY FIXED AND LAST*<br>
-</div>
 </div>
 </div>
 
 <!-- CARD 3 -->
 <div class="card" onclick="flip(this)">
 <div class="card-inner">
+
 <div class="card-front">
 <img src="acc3.jpg">
-<div class="price">₹399 OFFER</div>
+</div>
+
+<div class="card-back">
+Pro Account
+</div>
+
+</div>
+
+<div class="card-info">
+<div class="price">🔥 OFFER PRICE ₹399</div>
 <div class="timer"></div>
 <button class="buy-btn" onclick="event.stopPropagation(); openPopup()">BUY NOW</button>
-</div>
-<div class="card-back">Pro Account</div>
 </div>
 </div>
 
 <!-- CARD 4 -->
 <div class="card" onclick="flip(this)">
 <div class="card-inner">
+
 <div class="card-front">
 <img src="acc4.jpg">
-<div class="price">₹499 OFFER</div>
+</div>
+
+<div class="card-back">
+VIP Account
+</div>
+
+</div>
+
+<div class="card-info">
+<div class="price">🔥 OFFER PRICE ₹499</div>
 <div class="timer"></div>
 <button class="buy-btn" onclick="event.stopPropagation(); openPopup()">BUY NOW</button>
-</div>
-<div class="card-back">VIP Account</div>
 </div>
 </div>
 
@@ -283,7 +313,7 @@ time--;
 let h=Math.floor(time/3600);
 let m=Math.floor((time%3600)/60);
 let s=time%60;
-t.innerText="Ends: "+h+":"+m+":"+s;
+t.innerText="Sale ends in: "+h+"h "+m+"m "+s+"s";
 }
 },1000);
 });
