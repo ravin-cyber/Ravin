@@ -19,42 +19,74 @@ h1 {
     padding: 10px;
 }
 
-#timer {
-    font-size: 18px;
-    font-weight: bold;
-    margin: 10px;
-    color: #ffcc00;
-}
-
-/* 🔥 ONE BY ONE */
 .container {
     display: grid;
-    grid-template-columns: 1fr; /* ONE ITEM PER ROW */
+    grid-template-columns: 1fr;
     gap: 15px;
     padding: 10px;
 }
 
+/* CARD */
 .card {
     width: 100%;
-    height: 320px;
+    height: 340px;
+    perspective: 1000px;
+}
+
+.inner {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+.card.flipped .inner {
+    transform: rotateY(180deg);
+}
+
+.front, .back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
     border-radius: 15px;
+    backface-visibility: hidden;
     overflow: hidden;
-    background: #330000;
     box-shadow: 0 0 15px rgba(255,0,0,0.7);
 }
 
-/* 🔥 IMAGE PERFECT FIT */
-.card img {
+.front img {
     width: 100%;
     height: 200px;
-    object-fit: cover; /* fills box fully */
+    object-fit: cover;
 }
 
+.back {
+    background: #330000;
+    transform: rotateY(180deg);
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.back h3 {
+    margin: 5px 0;
+    color: #ff4d4d;
+}
+
+/* DESCRIPTION */
+.desc {
+    font-size: 12px;
+    background: #220000;
+    padding: 8px;
+    border-radius: 8px;
+    line-height: 1.4;
+}
+
+/* PRICE */
 .price {
     font-size: 18px;
     font-weight: bold;
     color: #ff4d4d;
-    margin: 5px 0;
 }
 
 .old-price {
@@ -63,6 +95,15 @@ h1 {
     font-size: 13px;
 }
 
+/* TIMER BOX */
+.sale {
+    margin-top: 6px;
+    font-size: 13px;
+    color: #ffcc00;
+    font-weight: bold;
+}
+
+/* BUTTON */
 button {
     width: 100%;
     padding: 12px;
@@ -71,9 +112,10 @@ button {
     font-weight: bold;
     color: white;
     font-size: 16px;
+    border-radius: 6px;
 }
 
-/* Popup */
+/* POPUP */
 .popup {
     display: none;
     position: fixed;
@@ -101,93 +143,196 @@ button {
 <body>
 
 <h1>🔥 TSK Free Fire Account Store 🔥</h1>
-<div id="timer">⏳ Offer ends in: 24:00:00</div>
 
 <div class="container">
 
-<!-- Account 1 -->
-<div class="card">
-    <img src="acc1.jpg">
-    <p class="price">₹999 <span class="old-price">₹1499</span></p>
-    <button onclick="openPopup('Account 1 - ₹999')">Buy Now</button>
+<!-- PRODUCT 1 -->
+<div class="card" onclick="flip(this)">
+<div class="inner">
+
+<div class="front">
+<img src="acc1.jpg">
 </div>
 
-<!-- Account 2 -->
-<div class="card">
-    <img src="acc2.jpg">
-    <p class="price">₹799 <span class="old-price">₹1199</span></p>
-    <button onclick="openPopup('Account 2 - ₹799')">Buy Now</button>
+<div class="back">
+<h3>Account 1</h3>
+
+<div class="desc">
+✔ Rare Skins<br>
+✔ Level 70+ ID<br>
+✔ Ranked High Tier<br>
+✔ Full Access
 </div>
 
-<!-- Account 3 -->
-<div class="card">
-    <img src="acc3.jpg">
-    <p class="price">₹1299 <span class="old-price">₹1799</span></p>
-    <button onclick="openPopup('Account 3 - ₹1299')">Buy Now</button>
+<p class="price">₹999 <span class="old-price">₹1499</span></p>
+
+<div class="sale">
+⏳ Sale ends in: <span id="t1">24:00:00</span>
 </div>
 
-<!-- Account 4 -->
-<div class="card">
-    <img src="acc4.jpg">
-    <p class="price">₹599 <span class="old-price">₹899</span></p>
-    <button onclick="openPopup('Account 4 - ₹599')">Buy Now</button>
+<button onclick="event.stopPropagation(); openPopup('Account 1 - ₹999')">Buy Now</button>
 </div>
 
 </div>
+</div>
 
-<!-- Popup -->
+<!-- PRODUCT 2 -->
+<div class="card" onclick="flip(this)">
+<div class="inner">
+
+<div class="front">
+<img src="acc2.jpg">
+</div>
+
+<div class="back">
+<h3>Account 2</h3>
+
+<div class="desc">
+✔ Legendary Skins<br>
+✔ Premium Account<br>
+✔ High Rank ID
+</div>
+
+<p class="price">₹799 <span class="old-price">₹1199</span></p>
+
+<div class="sale">
+⏳ Sale ends in: <span id="t2">24:00:00</span>
+</div>
+
+<button onclick="event.stopPropagation(); openPopup('Account 2 - ₹799')">Buy Now</button>
+</div>
+
+</div>
+</div>
+
+<!-- PRODUCT 3 -->
+<div class="card" onclick="flip(this)">
+<div class="inner">
+
+<div class="front">
+<img src="acc3.jpg">
+</div>
+
+<div class="back">
+<h3>Account 3</h3>
+
+<div class="desc">
+✔ Rare Bundle<br>
+✔ Diamond Items<br>
+✔ Ranked Ready
+</div>
+
+<p class="price">₹1299 <span class="old-price">₹1799</span></p>
+
+<div class="sale">
+⏳ Sale ends in: <span id="t3">24:00:00</span>
+</div>
+
+<button onclick="event.stopPropagation(); openPopup('Account 3 - ₹1299')">Buy Now</button>
+</div>
+
+</div>
+</div>
+
+<!-- PRODUCT 4 -->
+<div class="card" onclick="flip(this)">
+<div class="inner">
+
+<div class="front">
+<img src="acc4.jpg">
+</div>
+
+<div class="back">
+<h3>Account 4</h3>
+
+<div class="desc">
+✔ Starter Account<br>
+✔ Good Skins<br>
+✔ Safe Login
+</div>
+
+<p class="price">₹599 <span class="old-price">₹899</span></p>
+
+<div class="sale">
+⏳ Sale ends in: <span id="t4">24:00:00</span>
+</div>
+
+<button onclick="event.stopPropagation(); openPopup('Account 4 - ₹599')">Buy Now</button>
+</div>
+
+</div>
+</div>
+
+</div>
+
+<!-- POPUP -->
 <div id="popup" class="popup">
-    <div class="popup-content">
-        <h3>Select Seller</h3>
-        <button onclick="sendWhatsApp(1)">TSK Gaming</button>
-        <button onclick="sendWhatsApp(2)">Zoro Gaming</button>
-        <button onclick="closePopup()">Cancel</button>
-    </div>
+<div class="popup-content">
+<h3>Select Seller</h3>
+<button onclick="sendWhatsApp(1)">TSK Gaming</button>
+<button onclick="sendWhatsApp(2)">Zoro Gaming</button>
+<button onclick="closePopup()">Cancel</button>
+</div>
 </div>
 
 <script>
+
+/* FLIP */
+function flip(card){
+    card.classList.toggle("flipped");
+}
+
+/* POPUP */
 let selectedProduct = "";
 
-function openPopup(product) {
+function openPopup(product){
     selectedProduct = product;
     document.getElementById("popup").style.display = "block";
 }
 
-function closePopup() {
+function closePopup(){
     document.getElementById("popup").style.display = "none";
 }
 
-function sendWhatsApp(option) {
-    let number1 = "919042458779";
-    let number2 = "917339213791";
+/* WHATSAPP */
+function sendWhatsApp(option){
+    let n1 = "919042458779";
+    let n2 = "917339213791";
 
-    let message = "I want to buy " + selectedProduct;
+    let msg = "🔥 I want to buy " + selectedProduct;
 
     let url = option === 1
-        ? `https://wa.me/${number1}?text=${encodeURIComponent(message)}`
-        : `https://wa.me/${number2}?text=${encodeURIComponent(message)}`;
+        ? `https://wa.me/${n1}?text=${encodeURIComponent(msg)}`
+        : `https://wa.me/${n2}?text=${encodeURIComponent(msg)}`;
 
     window.location.href = url;
 }
 
-/* 24H TIMER */
-let timeLeft = 24 * 60 * 60;
+/* 🔥 MULTI PRODUCT TIMER */
+let time = 24 * 60 * 60;
 
-function startTimer() {
-    let h = Math.floor(timeLeft / 3600);
-    let m = Math.floor((timeLeft % 3600) / 60);
-    let s = timeLeft % 60;
+function updateTimers(){
 
-    document.getElementById("timer").innerHTML =
-        "⏳ Offer ends in: " +
-        String(h).padStart(2,'0') + ":" +
-        String(m).padStart(2,'0') + ":" +
-        String(s).padStart(2,'0');
+    function format(sec){
+        let h = Math.floor(sec/3600);
+        let m = Math.floor((sec%3600)/60);
+        let s = sec%60;
 
-    if (timeLeft > 0) timeLeft--;
+        return String(h).padStart(2,'0') + ":" +
+               String(m).padStart(2,'0') + ":" +
+               String(s).padStart(2,'0');
+    }
+
+    if(time > 0) time--;
+
+    document.getElementById("t1").innerHTML = format(time);
+    document.getElementById("t2").innerHTML = format(time);
+    document.getElementById("t3").innerHTML = format(time);
+    document.getElementById("t4").innerHTML = format(time);
 }
 
-setInterval(startTimer, 1000);
+setInterval(updateTimers, 1000);
+
 </script>
 
 </body>
