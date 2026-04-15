@@ -19,6 +19,7 @@ body {
     margin-top: 10px;
 }
 
+/* TITLE */
 h1{
     padding: 5px;
     color: #ff4d4d;
@@ -119,7 +120,7 @@ h1{
     text-align: center;
 }
 
-/* BUY BUTTON (NOW WHATSAPP BUTTON) */
+/* BUY BUTTON */
 .buy-btn{
     width: 100%;
     padding: 12px;
@@ -130,6 +131,27 @@ h1{
     font-size: 16px;
     border-radius: 6px;
     margin-top: 8px;
+}
+
+/* POPUP */
+.popup{
+    display:none;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.8);
+}
+
+.popup-content{
+    background:white;
+    color:black;
+    padding:20px;
+    margin:40% auto;
+    width:80%;
+    border-radius:10px;
+    text-align:center;
 }
 </style>
 </head>
@@ -144,7 +166,6 @@ h1{
 
 <!-- CARD 1 -->
 <div class="card">
-
 <div class="inner" onclick="flip(this)">
 <div class="flip-box">
 
@@ -162,22 +183,17 @@ h1{
 
 <p class="price">₹999 <span class="old-price">₹1499</span></p>
 
-<div class="timer">⏳ Sale Ends In: <span id="t1"></span></div>
+<div class="timer">⏳ Sale Ends: <span id="t1"></span></div>
 
 </div>
 </div>
 </div>
 
-<!-- ✅ BUY NOW = WHATSAPP -->
-<button class="buy-btn" onclick="buy('Account 1 - ₹999')">
-Buy Now
-</button>
-
+<button class="buy-btn" onclick="buy('Account 1 - ₹999')">Buy Now</button>
 </div>
 
 <!-- CARD 2 -->
 <div class="card">
-
 <div class="inner" onclick="flip(this)">
 <div class="flip-box">
 
@@ -193,21 +209,17 @@ Buy Now
 
 <p class="price">₹799 <span class="old-price">₹1199</span></p>
 
-<div class="timer">⏳ Sale Ends In: <span id="t2"></span></div>
+<div class="timer">⏳ Sale Ends: <span id="t2"></span></div>
 
 </div>
 </div>
 </div>
 
-<button class="buy-btn" onclick="buy('Account 2 - ₹799')">
-Buy Now
-</button>
-
+<button class="buy-btn" onclick="buy('Account 2 - ₹799')">Buy Now</button>
 </div>
 
 <!-- CARD 3 -->
 <div class="card">
-
 <div class="inner" onclick="flip(this)">
 <div class="flip-box">
 
@@ -223,21 +235,17 @@ Buy Now
 
 <p class="price">₹1299 <span class="old-price">₹1799</span></p>
 
-<div class="timer">⏳ Sale Ends In: <span id="t3"></span></div>
+<div class="timer">⏳ Sale Ends: <span id="t3"></span></div>
 
 </div>
 </div>
 </div>
 
-<button class="buy-btn" onclick="buy('Account 3 - ₹1299')">
-Buy Now
-</button>
-
+<button class="buy-btn" onclick="buy('Account 3 - ₹1299')">Buy Now</button>
 </div>
 
 <!-- CARD 4 -->
 <div class="card">
-
 <div class="inner" onclick="flip(this)">
 <div class="flip-box">
 
@@ -247,41 +255,71 @@ Buy Now
 <h3>Account 4</h3>
 
 <div class="desc">
-✔ Elite Pass<br>
+✔ Elite Pass Items<br>
 ✔ Rare Skins
 </div>
 
 <p class="price">₹599 <span class="old-price">₹999</span></p>
 
-<div class="timer">⏳ Sale Ends In: <span id="t4"></span></div>
+<div class="timer">⏳ Sale Ends: <span id="t4"></span></div>
 
 </div>
 </div>
 </div>
 
-<button class="buy-btn" onclick="buy('Account 4 - ₹599')">
-Buy Now
-</button>
+<button class="buy-btn" onclick="buy('Account 4 - ₹599')">Buy Now</button>
+</div>
 
 </div>
 
+<!-- POPUP -->
+<div id="popup" class="popup">
+<div class="popup-content">
+
+<h3>Select Seller</h3>
+
+<button class="buy-btn" style="background:#ff1a1a;" onclick="sendWhatsApp(1)">TSK Gaming</button>
+
+<button class="buy-btn" style="background:#ffcc00;color:black;" onclick="sendWhatsApp(2)">Zoro Gaming</button>
+
+<button class="buy-btn" style="background:gray;" onclick="closePopup()">Cancel</button>
+
+</div>
 </div>
 
 <script>
 
+let selectedProduct = "";
+
+/* FLIP */
 function flip(el){
     el.classList.toggle("flip-active");
 }
 
-/* WHATSAPP DIRECT BUY */
+/* BUY BUTTON */
 function buy(product){
+    selectedProduct = product;
+    document.getElementById("popup").style.display = "block";
+}
 
-    let n1="919042458779";
-    let msg="🔥 I want to buy "+product;
+/* CLOSE POPUP */
+function closePopup(){
+    document.getElementById("popup").style.display = "none";
+}
 
-    let url=`https://wa.me/${n1}?text=${encodeURIComponent(msg)}`;
+/* WHATSAPP */
+function sendWhatsApp(type){
 
-    window.location.href=url;
+    let n1 = "919042458779"; // TSK
+    let n2 = "917339213791"; // Zoro
+
+    let msg = "🔥 I want to buy " + selectedProduct;
+
+    let url = (type === 1)
+        ? `https://wa.me/${n1}?text=${encodeURIComponent(msg)}`
+        : `https://wa.me/${n2}?text=${encodeURIComponent(msg)}`;
+
+    window.location.href = url;
 }
 
 /* TIMER */
@@ -297,10 +335,10 @@ function format(s){
 function updateTimer(){
     if(time>0) time--;
 
-    document.getElementById("t1").innerHTML=format(time);
-    document.getElementById("t2").innerHTML=format(time);
-    document.getElementById("t3").innerHTML=format(time);
-    document.getElementById("t4").innerHTML=format(time);
+    document.getElementById("t1").innerHTML = format(time);
+    document.getElementById("t2").innerHTML = format(time);
+    document.getElementById("t3").innerHTML = format(time);
+    document.getElementById("t4").innerHTML = format(time);
 }
 
 setInterval(updateTimer,1000);
