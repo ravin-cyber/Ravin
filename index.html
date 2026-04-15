@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TSK Free Fire Accounts</title>
+<title>TSK Free Fire Shop</title>
 
 <style>
 body {
@@ -39,18 +39,16 @@ h1 {
 
 .card-inner {
     position: relative;
-    width: 100%;
-    height: 380px;
-    transition: transform 0.8s;
+    height: 420px;
+    transition: 0.8s;
     transform-style: preserve-3d;
 }
 
-/* CLICK FLIP */
 .card.flipped .card-inner {
     transform: rotateY(180deg);
 }
 
-/* FRONT + BACK */
+/* FRONT/BACK */
 .card-front, .card-back {
     position: absolute;
     width: 100%;
@@ -61,167 +59,170 @@ h1 {
     box-shadow: 0 0 10px black;
 }
 
-/* FRONT */
-.card-front {
-    background: #1a0000;
-    display: flex;
-    flex-direction: column;
+.card-back {
+    transform: rotateY(180deg);
+    background: #2a0000;
+    padding: 10px;
 }
 
-/* BIG IMAGE FIX */
+/* IMAGE */
 .card-front img {
     width: 100%;
-    height: 230px;   /* 👈 BIGGER IMAGE */
+    height: 220px;
     object-fit: cover;
-    object-position: center;
-    background: black;
+}
+
+/* PRICE */
+.price {
+    background: gold;
+    color: black;
+    font-weight: bold;
+    padding: 5px;
 }
 
 /* TIMER */
 .timer {
-    font-size: 13px;
-    margin: 5px 0;
+    font-size: 12px;
     color: #00ffcc;
-    font-weight: bold;
 }
 
-/* BUTTON */
+/* BUY BUTTON */
 .buy-btn {
-    margin: auto;
-    margin-bottom: 10px;
-    padding: 10px;
+    margin: 10px auto;
     width: 80%;
+    padding: 8px;
     background: red;
+    border: none;
+    color: white;
+    border-radius: 8px;
+}
+
+/* NEXT BUTTON */
+.next-btn {
+    margin: 15px;
+    padding: 10px 20px;
+    background: #ff2e2e;
     border: none;
     color: white;
     border-radius: 8px;
     font-weight: bold;
 }
 
-/* BACK */
-.card-back {
-    background: #2a0000;
-    transform: rotateY(180deg);
-    padding: 10px;
-}
-
-.desc {
-    font-size: 13px;
-    line-height: 1.5;
-    margin-top: 20px;
+/* FOOTER */
+footer {
+    margin: 15px;
+    font-size: 12px;
+    color: #aaa;
 }
 
 /* POPUP */
 .popup {
     display: none;
     position: fixed;
-    top: 0; left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.8);
-    justify-content: center;
-    align-items: center;
+    top:0;left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.8);
+    justify-content:center;
+    align-items:center;
 }
 
 .popup-box {
-    background: #1a0000;
-    padding: 20px;
-    border-radius: 10px;
-    width: 80%;
-    max-width: 300px;
+    background:#1a0000;
+    padding:20px;
+    border-radius:10px;
+    width:80%;
+    max-width:300px;
 }
 
 .popup-box button {
-    width: 100%;
-    margin: 10px 0;
-    padding: 10px;
-    border: none;
-    border-radius: 8px;
-    font-weight: bold;
+    width:100%;
+    margin:10px 0;
+    padding:10px;
+    border:none;
+    border-radius:8px;
+    font-weight:bold;
 }
 
-.tsk { background: red; color: white; }
-.zoro { background: orange; color: white; }
-.close { background: gray; color: white; }
+.tsk { background:red; color:white; }
+.zoro { background:orange; color:white; }
+.close { background:gray; color:white; }
 </style>
 </head>
 
 <body>
 
 <img src="logo.png" class="logo">
-<h1>🔥 TSK FREE FIRE ACCOUNTS 🔥</h1>
+<h1>🔥 TSK FREE FIRE SHOP 🔥</h1>
 
 <div class="container">
 
 <!-- CARD 1 -->
-<div class="card" onclick="flipCard(this)">
+<div class="card" onclick="flip(this)">
 <div class="card-inner">
 
 <div class="card-front">
-<img src="img1.jpg">
-<div class="timer" data-time="86400"></div>
+<img src="acc1.jpg">
+<div class="price">₹199 OFFER</div>
+<div class="timer"></div>
 <button class="buy-btn" onclick="event.stopPropagation(); openPopup()">BUY NOW</button>
 </div>
 
 <div class="card-back">
 <h3>Account 1</h3>
-<div class="desc">
-Level 70<br>
-Rare Skins<br>
-Elite Pass<br>
-Heroic Rank
-</div>
+Rare Skins<br>Elite Pass<br>Heroic Rank
 </div>
 
 </div>
 </div>
 
 <!-- CARD 2 -->
-<div class="card" onclick="flipCard(this)">
+<div class="card" onclick="flip(this)">
 <div class="card-inner">
 <div class="card-front">
-<img src="img2.jpg">
-<div class="timer" data-time="86400"></div>
+<img src="acc2.jpg">
+<div class="price">₹299 OFFER</div>
+<div class="timer"></div>
 <button class="buy-btn" onclick="event.stopPropagation(); openPopup()">BUY NOW</button>
 </div>
-<div class="card-back">
-<h3>Account 2</h3>
-<div class="desc">Level 65<br>Legendary Skins<br>Good KD</div>
-</div>
+<div class="card-back">Level 65 Account</div>
 </div>
 </div>
 
 <!-- CARD 3 -->
-<div class="card" onclick="flipCard(this)">
+<div class="card" onclick="flip(this)">
 <div class="card-inner">
 <div class="card-front">
-<img src="img3.jpg">
-<div class="timer" data-time="86400"></div>
+<img src="acc3.jpg">
+<div class="price">₹399 OFFER</div>
+<div class="timer"></div>
 <button class="buy-btn" onclick="event.stopPropagation(); openPopup()">BUY NOW</button>
 </div>
-<div class="card-back">
-<h3>Account 3</h3>
-<div class="desc">Level 80<br>Rare Bundles<br>Pro Account</div>
-</div>
+<div class="card-back">Pro Account</div>
 </div>
 </div>
 
 <!-- CARD 4 -->
-<div class="card" onclick="flipCard(this)">
+<div class="card" onclick="flip(this)">
 <div class="card-inner">
 <div class="card-front">
-<img src="img4.jpg">
-<div class="timer" data-time="86400"></div>
+<img src="acc4.jpg">
+<div class="price">₹499 OFFER</div>
+<div class="timer"></div>
 <button class="buy-btn" onclick="event.stopPropagation(); openPopup()">BUY NOW</button>
 </div>
-<div class="card-back">
-<h3>Account 4</h3>
-<div class="desc">Level 60<br>VIP Items<br>High Rank</div>
-</div>
+<div class="card-back">VIP Account</div>
 </div>
 </div>
 
 </div>
+
+<!-- NEXT PAGE -->
+<a href="page2.html">
+<button class="next-btn">➡ NEXT PAGE</button>
+</a>
+
+<footer>© 2026 TSK Gaming. All Rights Reserved.</footer>
 
 <!-- POPUP -->
 <div class="popup" id="popup">
@@ -234,18 +235,15 @@ Heroic Rank
 </div>
 
 <script>
-
-// CLICK FLIP
-function flipCard(card){
+function flip(card){
     card.classList.toggle("flipped");
 }
 
-// POPUP
 function openPopup(){
-    document.getElementById("popup").style.display = "flex";
+    document.getElementById("popup").style.display="flex";
 }
 function closePopup(){
-    document.getElementById("popup").style.display = "none";
+    document.getElementById("popup").style.display="none";
 }
 
 function goTSK(){
@@ -256,28 +254,18 @@ function goZORO(){
 }
 
 // TIMER
-document.querySelectorAll(".timer").forEach(timer=>{
-    let time = 86400;
-
-    setInterval(()=>{
-        if(time > 0){
-            time--;
-
-            let h = Math.floor(time/3600);
-            let m = Math.floor((time%3600)/60);
-            let s = time%60;
-
-            timer.innerText =
-            "Sale ends: " +
-            String(h).padStart(2,'0')+":"+
-            String(m).padStart(2,'0')+":"+
-            String(s).padStart(2,'0');
-        } else {
-            timer.innerText = "SALE ENDED";
-        }
-    },1000);
+document.querySelectorAll(".timer").forEach(t=>{
+let time=86400;
+setInterval(()=>{
+if(time>0){
+time--;
+let h=Math.floor(time/3600);
+let m=Math.floor((time%3600)/60);
+let s=time%60;
+t.innerText="Ends: "+h+":"+m+":"+s;
+}
+},1000);
 });
-
 </script>
 
 </body>
