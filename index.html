@@ -1,220 +1,225 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TSK Free Fire Accounts</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TSK Free Fire Accounts</title>
 
-<style>
-body {
-    font-family: Arial;
-    text-align: center;
-    background: linear-gradient(135deg, #1a0000, #660000);
-    color: white;
-    margin: 0;
-}
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            background: linear-gradient(135deg, #1a0000, #660000);
+            color: white;
+            margin: 0;
+        }
 
-h1 {
-    color: #ff4d4d;
-    font-size: 22px;
-    padding: 10px;
-}
+        h1 {
+            color: #ff4d4d;
+            font-size: 22px;
+            padding: 10px;
+        }
 
-.container {
-    display: grid;
-    grid-template-columns: repeat(1, 1fr); /* ONE PER ROW */
-    gap: 15px;
-    padding: 10px;
-}
+        #timer {
+            font-size: 18px;
+            font-weight: bold;
+            margin: 10px;
+            color: #ffcc00;
+        }
 
-.card {
-    width: 100%;
-    height: 300px;
-    perspective: 1000px;
-}
+        .container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            padding: 10px;
+        }
 
-.card-inner {
-    width: 100%;
-    height: 100%;
-    position: relative;
-    transform-style: preserve-3d;
-    transition: transform 0.6s;
-}
+        .card {
+            width: 100%;
+            height: 320px;
+            perspective: 1000px;
+        }
 
-.card.active .card-inner {
-    transform: rotateY(180deg);
-}
+        .card-inner {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.6s;
+        }
 
-.card-front, .card-back {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    backface-visibility: hidden;
-    border-radius: 12px;
-    overflow: hidden;
-    background: #330000;
-    box-shadow: 0 0 10px rgba(255,0,0,0.5);
-}
+        .card.active .card-inner {
+            transform: rotateY(180deg);
+        }
 
-.card-front img {
-    width: 100%;
-    height: 150px;
-    object-fit: cover;
-}
+        .card-front, .card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 12px;
+            overflow: hidden;
+            background: #330000;
+            box-shadow: 0 0 10px rgba(255,0,0,0.5);
+        }
 
-.timer {
-    font-size: 14px;
-    color: #ffcc00;
-    font-weight: bold;
-}
+        /* 🔥 BIG IMAGE STYLE */
+        .card-front img {
+            width: 100%;
+            height: 200px;
+            object-fit: contain; /* shows full screenshot */
+            background: black;
+            border-bottom: 2px solid red;
+        }
 
-.price {
-    font-size: 16px;
-    font-weight: bold;
-    color: #ff4d4d;
-}
+        .price {
+            font-size: 16px;
+            font-weight: bold;
+            color: #ff4d4d;
+            margin: 5px 0;
+        }
 
-.old-price {
-    text-decoration: line-through;
-    color: #bbb;
-    font-size: 12px;
-}
+        .old-price {
+            text-decoration: line-through;
+            color: #bbb;
+            font-size: 12px;
+        }
 
-.card-front button {
-    width: 100%;
-    padding: 10px;
-    background: #ff1a1a;
-    border: none;
-    font-weight: bold;
-    color: white;
-    cursor: pointer;
-}
+        .card-front button {
+            width: 100%;
+            padding: 8px;
+            background: #ff1a1a;
+            border: none;
+            font-weight: bold;
+            color: white;
+            cursor: pointer;
+        }
 
-.card-back {
-    transform: rotateY(180deg);
-    padding: 10px;
-    font-size: 12px;
-    text-align: left;
-}
+        .card-back {
+            transform: rotateY(180deg);
+            padding: 8px;
+            font-size: 11px;
+            text-align: left;
+        }
 
-/* Popup */
-.popup {
-    display: none;
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background: rgba(0,0,0,0.8);
-}
+        .next-btn {
+            margin: 15px;
+            padding: 10px 20px;
+            background: #ff1a1a;
+            border: none;
+            color: white;
+            border-radius: 5px;
+            font-weight: bold;
+        }
 
-.popup-content {
-    background: #fff;
-    color: black;
-    padding: 20px;
-    margin: 40% auto;
-    width: 80%;
-    border-radius: 10px;
-}
+        /* Popup */
+        .popup {
+            display: none;
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0,0,0,0.8);
+        }
 
-.popup button {
-    width: 100%;
-    margin: 5px 0;
-    padding: 10px;
-    background: red;
-    color: white;
-    border: none;
-}
+        .popup-content {
+            background: #fff;
+            color: black;
+            padding: 20px;
+            margin: 40% auto;
+            width: 80%;
+            border-radius: 10px;
+        }
 
-.next-btn {
-    margin: 15px;
-    padding: 10px 20px;
-    background: #ff1a1a;
-    border: none;
-    color: white;
-    border-radius: 5px;
-    font-weight: bold;
-}
-</style>
+        .popup button {
+            width: 100%;
+            margin: 5px 0;
+            padding: 10px;
+            background: red;
+            color: white;
+            border: none;
+        }
+
+        @media(min-width: 768px) {
+            .container {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+    </style>
 </head>
 
 <body>
 
 <h1>🔥 TSK Free Fire Account Store 🔥</h1>
 
+<div id="timer">⏳ Offer ends in: 24:00:00</div>
+
 <div class="container">
 
 <!-- Account 1 -->
 <div class="card" onclick="flipCard(this)">
-<div class="card-inner">
-<div class="card-front">
-<img src="acc1.jpg">
-<div class="timer" id="timer1"></div>
-<p class="price">₹3500 <span class="old-price">₹4500</span></p>
-<button onclick="event.stopPropagation(); openPopup('Account 1 - ₹3500')">Buy Now</button>
-</div>
-<div class="card-back">
-Prime 5 Account #1<br>
-• Level 65+<br>
-• 100+ Skins<br>
-• Evo Gun<br>
-• Rare Bundles
-</div>
-</div>
+    <div class="card-inner">
+        <div class="card-front">
+            <img src="acc1.jpg">
+            <p class="price">₹999 <span class="old-price">₹1499</span></p>
+            <button onclick="event.stopPropagation(); openPopup('Account 1 - ₹999')">Buy Now</button>
+        </div>
+        <div class="card-back">
+            • Level 65+<br>
+            • 100+ Skins<br>
+            • Evo Gun<br>
+            • Rare Bundles
+        </div>
+    </div>
 </div>
 
 <!-- Account 2 -->
 <div class="card" onclick="flipCard(this)">
-<div class="card-inner">
-<div class="card-front">
-<img src="acc2.jpg">
-<div class="timer" id="timer2"></div>
-<p class="price">₹799 <span class="old-price">₹1199</span></p>
-<button onclick="event.stopPropagation(); openPopup('Account 2 - ₹799')">Buy Now</button>
-</div>
-<div class="card-back">
-FF Account #2<br>
-• Level 65+<br>
-• 80+ Skins<br>
-• Evo Gun Max<br>
-• Rare Emotes
-</div>
-</div>
+    <div class="card-inner">
+        <div class="card-front">
+            <img src="acc2.jpg">
+            <p class="price">₹799 <span class="old-price">₹1199</span></p>
+            <button onclick="event.stopPropagation(); openPopup('Account 2 - ₹799')">Buy Now</button>
+        </div>
+        <div class="card-back">
+            • Level 65+<br>
+            • 80+ Skins<br>
+            • Evo Gun Max<br>
+            • Rare Emotes
+        </div>
+    </div>
 </div>
 
 <!-- Account 3 -->
 <div class="card" onclick="flipCard(this)">
-<div class="card-inner">
-<div class="card-front">
-<img src="acc3.jpg">
-<div class="timer" id="timer3"></div>
-<p class="price">₹1299 <span class="old-price">₹1799</span></p>
-<button onclick="event.stopPropagation(); openPopup('Account 3 - ₹1299')">Buy Now</button>
-</div>
-<div class="card-back">
-FF Account #3<br>
-• Level 75+<br>
-• 120+ Skins<br>
-• 2 Evo Guns<br>
-• Legendary Bundles
-</div>
-</div>
+    <div class="card-inner">
+        <div class="card-front">
+            <img src="acc3.jpg">
+            <p class="price">₹1299 <span class="old-price">₹1799</span></p>
+            <button onclick="event.stopPropagation(); openPopup('Account 3 - ₹1299')">Buy Now</button>
+        </div>
+        <div class="card-back">
+            • Level 75+<br>
+            • 120+ Skins<br>
+            • 2 Evo Guns<br>
+            • Legendary Bundles
+        </div>
+    </div>
 </div>
 
 <!-- Account 4 -->
 <div class="card" onclick="flipCard(this)">
-<div class="card-inner">
-<div class="card-front">
-<img src="acc4.jpg">
-<div class="timer" id="timer4"></div>
-<p class="price">₹599 <span class="old-price">₹899</span></p>
-<button onclick="event.stopPropagation(); openPopup('Account 4 - ₹599')">Buy Now</button>
-</div>
-<div class="card-back">
-FF Account #4<br>
-• Level 60+<br>
-• 70+ Skins<br>
-• Budget Account<br>
-• Smooth Gameplay
-</div>
-</div>
+    <div class="card-inner">
+        <div class="card-front">
+            <img src="acc4.jpg">
+            <p class="price">₹599 <span class="old-price">₹899</span></p>
+            <button onclick="event.stopPropagation(); openPopup('Account 4 - ₹599')">Buy Now</button>
+        </div>
+        <div class="card-back">
+            • Level 60+<br>
+            • 70+ Skins<br>
+            • Budget Account<br>
+            • Smooth Gameplay
+        </div>
+    </div>
 </div>
 
 </div>
@@ -223,12 +228,12 @@ FF Account #4<br>
 
 <!-- Popup -->
 <div id="popup" class="popup">
-<div class="popup-content">
-<h3>Select Seller</h3>
-<button onclick="sendWhatsApp(1)">TSK Gaming</button>
-<button onclick="sendWhatsApp(2)">Zoro Gaming</button>
-<button onclick="closePopup()">Cancel</button>
-</div>
+    <div class="popup-content">
+        <h3>Select Seller</h3>
+        <button onclick="sendWhatsApp(1)">TSK Gaming</button>
+        <button onclick="sendWhatsApp(2)">Zoro Gaming</button>
+        <button onclick="closePopup()">Cancel</button>
+    </div>
 </div>
 
 <script>
@@ -263,30 +268,28 @@ function sendWhatsApp(option) {
     window.location.href = url;
 }
 
-// MULTIPLE TIMERS
-let timers = [86400, 86400, 86400, 86400]; // 24h each
+// 24H TIMER
+let timeLeft = 24 * 60 * 60;
 
-function updateTimers() {
-    timers.forEach((time, index) => {
-        let h = Math.floor(time / 3600);
-        let m = Math.floor((time % 3600) / 60);
-        let s = time % 60;
+function startTimer() {
+    let hours = Math.floor(timeLeft / 3600);
+    let minutes = Math.floor((timeLeft % 3600) / 60);
+    let seconds = timeLeft % 60;
 
-        document.getElementById("timer" + (index + 1)).innerHTML =
-            "⏳ " +
-            String(h).padStart(2,'0') + ":" +
-            String(m).padStart(2,'0') + ":" +
-            String(s).padStart(2,'0');
+    document.getElementById("timer").innerHTML =
+        "⏳ Offer ends in: " +
+        String(hours).padStart(2,'0') + ":" +
+        String(minutes).padStart(2,'0') + ":" +
+        String(seconds).padStart(2,'0');
 
-        if (timers[index] > 0) {
-            timers[index]--;
-        } else {
-            document.getElementById("timer" + (index + 1)).innerHTML = "❌ Expired";
-        }
-    });
+    if (timeLeft > 0) {
+        timeLeft--;
+    } else {
+        document.getElementById("timer").innerHTML = "❌ Offer Expired!";
+    }
 }
 
-setInterval(updateTimers, 1000);
+setInterval(startTimer, 1000);
 </script>
 
 </body>
