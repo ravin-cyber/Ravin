@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>TSK Free Fire Accounts</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            background: #0f172a;
+            color: white;
+        }
+
+        h1 {
+            color: #22c55e;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .card {
+            width: 200px;
+            height: 260px;
+            perspective: 1000px;
+        }
+
+        .card-inner {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.6s;
+        }
+
+        .card.active .card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .card-front, .card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 10px;
+            overflow: hidden;
+            background: #1e293b;
+        }
+
+        .card-front img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card-front button {
+            width: 100%;
+            padding: 10px;
+            background: #22c55e;
+            border: none;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .card-back {
+            transform: rotateY(180deg);
+            padding: 10px;
+            font-size: 13px;
+            text-align: left;
+        }
+
+        /* Popup */
+        .popup {
+            display: none;
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0,0,0,0.7);
+        }
+
+        .popup-content {
+            background: white;
+            color: black;
+            padding: 20px;
+            margin: 150px auto;
+            width: 260px;
+            border-radius: 10px;
+        }
+
+        .popup button {
+            width: 100%;
+            margin: 5px 0;
+            padding: 10px;
+            background: green;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+<h1>🔥 TSK Free Fire Account Store 🔥</h1>
+
+<div class="container">
+
+<!-- Account 1 -->
+<div class="card" onclick="flipCard(this)">
+    <div class="card-inner">
+        <div class="card-front">
+            <img src="acc1.jpg">
+            <button onclick="event.stopPropagation(); openPopup('Free Fire Account Level 70')">Buy Now</button>
+        </div>
+        <div class="card-back">
+            <h3>FF Account #1</h3>
+            • Level: 65+<br>
+            • Skins: 100+ 🔥<br>
+            • Evo Gun: Yes<br>
+            • Elite Pass: Active<br>
+            • Rare Bundles<br>
+            • Emotes: 50+<br>
+            • Diamonds Used Account<br>
+            • Full Access ID
+            PRIME 5
+        </div>
+    </div>
+</div>
+
+<!-- Account 2 -->
+<div class="card" onclick="flipCard(this)">
+    <div class="card-inner">
+        <div class="card-front">
+            <img src="acc2.jpg">
+            <button onclick="event.stopPropagation(); openPopup('Free Fire Account Level 65')">Buy Now</button>
+        </div>
+        <div class="card-back">
+            <h3>FF Account #2</h3>
+            • Level: 65+<br>
+            • Skins: 80+<br>
+            • Evo Gun Max<br>
+            • Rare Emotes<br>
+            • Headshot Rate High<br>
+            • Grandmaster Rank<br>
+            • Stylish Name<br>
+            • Full Access
+        </div>
+    </div>
+</div>
+
+<!-- Account 3 -->
+<div class="card" onclick="flipCard(this)">
+    <div class="card-inner">
+        <div class="card-front">
+            <img src="acc3.jpg">
+            <button onclick="event.stopPropagation(); openPopup('Free Fire Account Level 75')">Buy Now</button>
+        </div>
+        <div class="card-back">
+            <h3>FF Account #3</h3>
+            • Level: 75+<br>
+            • Skins: 120+ 🔥<br>
+            • Evo Guns: 2<br>
+            • Legendary Bundles<br>
+            • KD High<br>
+            • Rare Collection<br>
+            • Fast Gameplay<br>
+            • Secure ID
+        </div>
+    </div>
+</div>
+
+<!-- Account 4 -->
+<div class="card" onclick="flipCard(this)">
+    <div class="card-inner">
+        <div class="card-front">
+            <img src="acc4.jpg">
+            <button onclick="event.stopPropagation(); openPopup('Free Fire Account Level 60')">Buy Now</button>
+        </div>
+        <div class="card-back">
+            <h3>FF Account #4</h3>
+            • Level: 60+<br>
+            • Skins: 70+<br>
+            • Rare Gun Skins<br>
+            • Elite Pass Old<br>
+            • Good Rank<br>
+            • Smooth Gameplay<br>
+            • Budget Account<br>
+            • Full Access
+        </div>
+    </div>
+</div>
+
+</div>
+
+<br>
+<button onclick="window.location.href='page2.html'">Next Page →</button>
+
+<!-- WhatsApp Popup -->
+<div id="popup" class="popup">
+    <div class="popup-content">
+        <h3>Select Seller</h3>
+        <button onclick="sendWhatsApp(1)">TSK Gaming</button>
+        <button onclick="sendWhatsApp(2)">Zoro Gaming</button>
+        <button onclick="closePopup()">Cancel</button>
+    </div>
+</div>
+
+<script>
+let selectedProduct = "";
+
+function flipCard(card) {
+    card.classList.toggle("active");
+}
+
+function openPopup(product) {
+    selectedProduct = product;
+    document.getElementById("popup").style.display = "block";
+}
+
+function closePopup() {
+    document.getElementById("popup").style.display = "none";
+}
+
+function sendWhatsApp(option) {
+    let number1 = "919042458779"; // TSK number
+    let number2 = "9173392 13791"; // Zoro number
+
+    let message = "I want to buy " + selectedProduct;
+
+    let url = option === 1
+        ? `https://wa.me/${number1}?text=${encodeURIComponent(message)}`
+        : `https://wa.me/${number2}?text=${encodeURIComponent(message)}`;
+
+    window.location.href = url;
+}
+</script>
+
+</body>
+</html>
