@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TSK Free Fire Shop</title>
+<title>🎮TSK Free Fire Shop</title>
 
 <style>
 body {
@@ -26,7 +26,7 @@ h1 {
 /* GRID */
 .container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
     gap: 15px;
     padding: 15px;
 }
@@ -39,7 +39,7 @@ h1 {
 
 .card-inner {
     position: relative;
-    height: 420px;
+    height: 460px;
     transition: 0.8s;
     transform-style: preserve-3d;
 }
@@ -48,7 +48,7 @@ h1 {
     transform: rotateY(180deg);
 }
 
-/* FRONT/BACK */
+/* FRONT + BACK */
 .card-front, .card-back {
     position: absolute;
     width: 100%;
@@ -65,11 +65,12 @@ h1 {
     padding: 10px;
 }
 
-/* IMAGE */
+/* 🔥 BIGGER IMAGE (MAIN FIX) */
 .card-front img {
     width: 100%;
-    height: 220px;
+    height: 280px;   /* 👈 INCREASED SIZE */
     object-fit: cover;
+    object-position: center;
 }
 
 /* PRICE */
@@ -84,9 +85,10 @@ h1 {
 .timer {
     font-size: 12px;
     color: #00ffcc;
+    margin: 5px 0;
 }
 
-/* BUY BUTTON */
+/* BUY */
 .buy-btn {
     margin: 10px auto;
     width: 80%;
@@ -97,7 +99,7 @@ h1 {
     border-radius: 8px;
 }
 
-/* NEXT BUTTON */
+/* NEXT */
 .next-btn {
     margin: 15px;
     padding: 10px 20px;
@@ -179,45 +181,59 @@ Rare Skins<br>Elite Pass<br>Heroic Rank
 <!-- CARD 2 -->
 <div class="card" onclick="flip(this)">
 <div class="card-inner">
+
 <div class="card-front">
 <img src="acc2.jpg">
 <div class="price">₹299 OFFER</div>
 <div class="timer"></div>
 <button class="buy-btn" onclick="event.stopPropagation(); openPopup()">BUY NOW</button>
 </div>
-<div class="card-back">Level 65 Account</div>
+
+<div class="card-back">
+Level 65 Account
+</div>
+
 </div>
 </div>
 
 <!-- CARD 3 -->
 <div class="card" onclick="flip(this)">
 <div class="card-inner">
+
 <div class="card-front">
 <img src="acc3.jpg">
 <div class="price">₹399 OFFER</div>
 <div class="timer"></div>
 <button class="buy-btn" onclick="event.stopPropagation(); openPopup()">BUY NOW</button>
 </div>
-<div class="card-back">Pro Account</div>
+
+<div class="card-back">
+Pro Account
+</div>
+
 </div>
 </div>
 
 <!-- CARD 4 -->
 <div class="card" onclick="flip(this)">
 <div class="card-inner">
+
 <div class="card-front">
 <img src="acc4.jpg">
 <div class="price">₹499 OFFER</div>
 <div class="timer"></div>
 <button class="buy-btn" onclick="event.stopPropagation(); openPopup()">BUY NOW</button>
 </div>
-<div class="card-back">VIP Account</div>
+
+<div class="card-back">
+VIP Account
+</div>
+
 </div>
 </div>
 
 </div>
 
-<!-- NEXT PAGE -->
 <a href="page2.html">
 <button class="next-btn">➡ NEXT PAGE</button>
 </a>
