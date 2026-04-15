@@ -6,20 +6,20 @@
 
 <style>
 body {
+    margin: 0;
     font-family: Arial;
-    text-align: center;
     background: linear-gradient(135deg, #1a0000, #660000);
     color: white;
-    margin: 0;
+    text-align: center;
 }
 
-h1 {
-    color: #ff4d4d;
-    font-size: 22px;
+h1{
     padding: 10px;
+    color: #ff4d4d;
 }
 
-.container {
+/* GRID */
+.container{
     display: grid;
     grid-template-columns: 1fr;
     gap: 15px;
@@ -27,13 +27,13 @@ h1 {
 }
 
 /* CARD */
-.card {
+.card{
     width: 100%;
     height: 340px;
     perspective: 1000px;
 }
 
-.inner {
+.inner{
     width: 100%;
     height: 100%;
     position: relative;
@@ -41,70 +41,83 @@ h1 {
     transform-style: preserve-3d;
 }
 
-.card.flipped .inner {
+.card.flipped .inner{
     transform: rotateY(180deg);
 }
 
-.front, .back {
+/* FRONT + BACK */
+.front, .back{
     position: absolute;
     width: 100%;
     height: 100%;
     border-radius: 15px;
     backface-visibility: hidden;
     overflow: hidden;
-    box-shadow: 0 0 15px rgba(255,0,0,0.7);
+    box-shadow: 0 0 15px rgba(255,0,0,0.6);
 }
 
-.front img {
+/* ✅ FIX IMAGE FULL FIT */
+.front{
+    background: black;
+}
+
+.front img{
     width: 100%;
-    height: 200px;
+    height: 100%;
     object-fit: cover;
+    object-position: center;
 }
 
-.back {
-    background: #330000;
+/* BACK SIDE */
+.back{
+    background: #2a0000;
     transform: rotateY(180deg);
     padding: 10px;
     box-sizing: border-box;
+    text-align: left;
 }
 
-.back h3 {
+/* TITLE */
+.back h3{
     margin: 5px 0;
+    text-align: center;
     color: #ff4d4d;
 }
 
 /* DESCRIPTION */
-.desc {
+.desc{
     font-size: 12px;
-    background: #220000;
+    background: #1a0000;
     padding: 8px;
     border-radius: 8px;
     line-height: 1.4;
 }
 
 /* PRICE */
-.price {
+.price{
     font-size: 18px;
     font-weight: bold;
     color: #ff4d4d;
+    margin-top: 6px;
 }
 
-.old-price {
+.old-price{
     text-decoration: line-through;
     color: #bbb;
     font-size: 13px;
 }
 
-/* TIMER BOX */
-.sale {
-    margin-top: 6px;
+/* TIMER */
+.sale{
+    margin-top: 8px;
     font-size: 13px;
     color: #ffcc00;
     font-weight: bold;
+    text-align: center;
 }
 
-/* BUTTON */
-button {
+/* BUY BUTTON */
+button{
     width: 100%;
     padding: 12px;
     background: #ff1a1a;
@@ -113,29 +126,30 @@ button {
     color: white;
     font-size: 16px;
     border-radius: 6px;
+    margin-top: 8px;
 }
 
 /* POPUP */
-.popup {
-    display: none;
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background: rgba(0,0,0,0.8);
+.popup{
+    display:none;
+    position:fixed;
+    top:0;left:0;
+    width:100%;height:100%;
+    background:rgba(0,0,0,0.8);
 }
 
-.popup-content {
-    background: white;
-    color: black;
-    padding: 20px;
-    margin: 40% auto;
-    width: 80%;
-    border-radius: 10px;
+.popup-content{
+    background:white;
+    color:black;
+    padding:20px;
+    margin:40% auto;
+    width:80%;
+    border-radius:10px;
 }
 
-.popup button {
-    background: red;
-    margin: 5px 0;
+.popup button{
+    background:red;
+    margin:5px 0;
 }
 </style>
 </head>
@@ -146,22 +160,25 @@ button {
 
 <div class="container">
 
-<!-- PRODUCT 1 -->
+<!-- CARD 1 -->
 <div class="card" onclick="flip(this)">
 <div class="inner">
 
+<!-- FRONT -->
 <div class="front">
 <img src="acc1.jpg">
 </div>
 
+<!-- BACK -->
 <div class="back">
 <h3>Account 1</h3>
 
 <div class="desc">
-✔ Rare Skins<br>
-✔ Level 70+ ID<br>
-✔ Ranked High Tier<br>
-✔ Full Access
+✔ Rare Skins Available<br>
+✔ Level 70+ Account<br>
+✔ High Rank ID<br>
+✔ Full Access<br>
+✔ Safe Login
 </div>
 
 <p class="price">₹999 <span class="old-price">₹1499</span></p>
@@ -170,13 +187,15 @@ button {
 ⏳ Sale ends in: <span id="t1">24:00:00</span>
 </div>
 
-<button onclick="event.stopPropagation(); openPopup('Account 1 - ₹999')">Buy Now</button>
+<button onclick="event.stopPropagation(); openPopup('Account 1 - ₹999')">
+Buy Now
+</button>
 </div>
 
 </div>
 </div>
 
-<!-- PRODUCT 2 -->
+<!-- CARD 2 -->
 <div class="card" onclick="flip(this)">
 <div class="inner">
 
@@ -189,8 +208,8 @@ button {
 
 <div class="desc">
 ✔ Legendary Skins<br>
-✔ Premium Account<br>
-✔ High Rank ID
+✔ Premium ID<br>
+✔ High Rank
 </div>
 
 <p class="price">₹799 <span class="old-price">₹1199</span></p>
@@ -199,13 +218,15 @@ button {
 ⏳ Sale ends in: <span id="t2">24:00:00</span>
 </div>
 
-<button onclick="event.stopPropagation(); openPopup('Account 2 - ₹799')">Buy Now</button>
+<button onclick="event.stopPropagation(); openPopup('Account 2 - ₹799')">
+Buy Now
+</button>
 </div>
 
 </div>
 </div>
 
-<!-- PRODUCT 3 -->
+<!-- CARD 3 -->
 <div class="card" onclick="flip(this)">
 <div class="inner">
 
@@ -228,36 +249,9 @@ button {
 ⏳ Sale ends in: <span id="t3">24:00:00</span>
 </div>
 
-<button onclick="event.stopPropagation(); openPopup('Account 3 - ₹1299')">Buy Now</button>
-</div>
-
-</div>
-</div>
-
-<!-- PRODUCT 4 -->
-<div class="card" onclick="flip(this)">
-<div class="inner">
-
-<div class="front">
-<img src="acc4.jpg">
-</div>
-
-<div class="back">
-<h3>Account 4</h3>
-
-<div class="desc">
-✔ Starter Account<br>
-✔ Good Skins<br>
-✔ Safe Login
-</div>
-
-<p class="price">₹599 <span class="old-price">₹899</span></p>
-
-<div class="sale">
-⏳ Sale ends in: <span id="t4">24:00:00</span>
-</div>
-
-<button onclick="event.stopPropagation(); openPopup('Account 4 - ₹599')">Buy Now</button>
+<button onclick="event.stopPropagation(); openPopup('Account 3 - ₹1299')">
+Buy Now
+</button>
 </div>
 
 </div>
@@ -283,55 +277,51 @@ function flip(card){
 }
 
 /* POPUP */
-let selectedProduct = "";
+let selectedProduct="";
 
-function openPopup(product){
-    selectedProduct = product;
-    document.getElementById("popup").style.display = "block";
+function openPopup(p){
+    selectedProduct=p;
+    document.getElementById("popup").style.display="block";
 }
 
 function closePopup(){
-    document.getElementById("popup").style.display = "none";
+    document.getElementById("popup").style.display="none";
 }
 
 /* WHATSAPP */
-function sendWhatsApp(option){
-    let n1 = "919042458779";
-    let n2 = "917339213791";
+function sendWhatsApp(opt){
+    let n1="919042458779";
+    let n2="917339213791";
 
-    let msg = "🔥 I want to buy " + selectedProduct;
+    let msg="🔥 I want to buy "+selectedProduct;
 
-    let url = option === 1
-        ? `https://wa.me/${n1}?text=${encodeURIComponent(msg)}`
-        : `https://wa.me/${n2}?text=${encodeURIComponent(msg)}`;
+    let url = opt===1
+    ? `https://wa.me/${n1}?text=${encodeURIComponent(msg)}`
+    : `https://wa.me/${n2}?text=${encodeURIComponent(msg)}`;
 
-    window.location.href = url;
+    window.location.href=url;
 }
 
-/* 🔥 MULTI PRODUCT TIMER */
-let time = 24 * 60 * 60;
+/* TIMER */
+let t=24*60*60;
 
-function updateTimers(){
+function runTimer(){
+    function format(s){
+        let h=Math.floor(s/3600);
+        let m=Math.floor((s%3600)/60);
+        let sec=s%60;
 
-    function format(sec){
-        let h = Math.floor(sec/3600);
-        let m = Math.floor((sec%3600)/60);
-        let s = sec%60;
-
-        return String(h).padStart(2,'0') + ":" +
-               String(m).padStart(2,'0') + ":" +
-               String(s).padStart(2,'0');
+        return String(h).padStart(2,'0')+":"+String(m).padStart(2,'0')+":"+String(sec).padStart(2,'0');
     }
 
-    if(time > 0) time--;
+    if(t>0) t--;
 
-    document.getElementById("t1").innerHTML = format(time);
-    document.getElementById("t2").innerHTML = format(time);
-    document.getElementById("t3").innerHTML = format(time);
-    document.getElementById("t4").innerHTML = format(time);
+    document.getElementById("t1").innerHTML=format(t);
+    document.getElementById("t2").innerHTML=format(t);
+    document.getElementById("t3").innerHTML=format(t);
 }
 
-setInterval(updateTimers, 1000);
+setInterval(runTimer,1000);
 
 </script>
 
