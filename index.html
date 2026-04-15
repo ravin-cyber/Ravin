@@ -1,359 +1,196 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TSK Free Fire Store</title>
+<title>TSK Free Fire Accounts</title>
 
 <style>
-body{
-    margin:0;
-    font-family:Arial;
-    background:linear-gradient(135deg,#1a0000,#660000);
-    color:white;
-    text-align:center;
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #0a0000, #660000);
+    color: white;
+    text-align: center;
 }
 
-.logo{
-    width:120px;
-    margin-top:10px;
-}
-
-h1{
-    font-size:20px;
-    color:#ff4d4d;
+/* HEADER */
+h1 {
+    padding: 15px;
+    color: #ff3b3b;
 }
 
 /* GRID */
-.container{
-    display:grid;
-    grid-template-columns:1fr;
-    gap:15px;
-    padding:10px;
+.container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 15px;
+    padding: 15px;
 }
 
-/* CARD FIX */
-.card{
-    width:100%;
-    height:430px;
+/* FLIP CARD */
+.card {
+    perspective: 1000px;
 }
 
-/* FLIP CONTAINER */
-.flip-container{
-    width:100%;
-    height:340px;
-    perspective:1000px;
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 280px;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
 }
 
-/* INNER FLIP */
-.flip-inner{
-    width:100%;
-    height:100%;
-    position:relative;
-    transition:transform 0.8s;
-    transform-style:preserve-3d;
+.card:hover .card-inner {
+    transform: rotateY(180deg);
 }
 
-/* FLIP ACTIVE */
-.flip-inner.flipped{
-    transform:rotateY(180deg);
-}
-
-/* FRONT + BACK */
-.front, .back{
-    position:absolute;
-    width:100%;
-    height:100%;
-    border-radius:15px;
-    backface-visibility:hidden;
-    overflow:hidden;
-    box-shadow:0 0 15px rgba(255,0,0,0.6);
+.card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    backface-visibility: hidden;
+    overflow: hidden;
+    box-shadow: 0 0 10px black;
 }
 
 /* FRONT */
-.front{
-    position:relative;
+.card-front {
+    background: #1a0000;
 }
 
-.front img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
+.card-front img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
 }
 
-/* TIMER */
-.timer{
-    position:absolute;
-    bottom:0;
-    width:100%;
-    background:rgba(0,0,0,0.6);
-    color:#ffcc00;
-    padding:6px;
-    font-weight:bold;
-    font-size:13px;
+.buy-btn {
+    margin-top: 10px;
+    padding: 8px;
+    width: 80%;
+    background: red;
+    border: none;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
 }
 
 /* BACK */
-.back{
-    background:#2a0000;
-    transform:rotateY(180deg);
-    padding:10px;
-    box-sizing:border-box;
+.card-back {
+    background: #330000;
+    transform: rotateY(180deg);
+    padding: 10px;
+    box-sizing: border-box;
 }
 
-.back h3{
-    color:#ff4d4d;
-}
-
-.desc{
-    font-size:12px;
-    background:#1a0000;
-    padding:8px;
-    border-radius:8px;
-}
-
-.price{
-    font-size:18px;
-    color:#ff4d4d;
-    font-weight:bold;
-}
-
-/* BUY */
-.buy-btn{
-    width:100%;
-    padding:12px;
-    background:#ff1a1a;
-    border:none;
-    color:white;
-    font-weight:bold;
-    font-size:16px;
-    border-radius:6px;
-    margin-top:8px;
-}
-
-/* POPUP */
-.popup{
-    display:none;
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    background:rgba(0,0,0,0.8);
-}
-
-.popup-content{
-    background:white;
-    color:black;
-    padding:20px;
-    margin:40% auto;
-    width:80%;
-    border-radius:10px;
-}
-
-/* NEXT + QUOTES */
-.quotes{
-    padding:15px;
-    color:#ffcc00;
-    font-size:13px;
-}
-
-.next-btn{
-    width:90%;
-    padding:12px;
-    background:#ff1a1a;
-    border:none;
-    color:white;
-    font-weight:bold;
-    font-size:16px;
-    border-radius:6px;
-    margin-bottom:20px;
+.desc {
+    font-size: 13px;
+    margin-top: 20px;
+    line-height: 1.4;
 }
 </style>
 </head>
 
 <body>
 
-<img src="logo.png" class="logo">
-<h1>🔥 TSK Free Fire Store 🔥</h1>
+<h1>🔥 TSK FREE FIRE ACCOUNTS 🔥</h1>
 
 <div class="container">
 
-<!-- CARD 1 -->
-<div class="card">
+    <!-- CARD 1 -->
+    <div class="card">
+        <div class="card-inner">
 
-<div class="flip-container" onclick="flip(this)">
-<div class="flip-inner">
+            <div class="card-front">
+                <img src="img1.jpg" alt="">
+                <button class="buy-btn" onclick="buyNow()">BUY NOW</button>
+            </div>
 
-<div class="front">
-<img src="acc1.jpg">
-<div class="timer">⏳ <span id="t1"></span></div>
-</div>
+            <div class="card-back">
+                <h3>Account 1</h3>
+                <div class="desc">
+                    Level 70 Account<br>
+                    Rare Skins<br>
+                    Elite Pass Included<br>
+                    Rank: Heroic
+                </div>
+            </div>
 
-<div class="back">
-<h3>Account 1</h3>
-<div class="desc">✔ Rare Skins ✔ Level 70+</div>
-<p class="price">₹999</p>
-</div>
+        </div>
+    </div>
 
-</div>
-</div>
+    <!-- CARD 2 -->
+    <div class="card">
+        <div class="card-inner">
+            <div class="card-front">
+                <img src="img2.jpg">
+                <button class="buy-btn" onclick="buyNow()">BUY NOW</button>
+            </div>
+            <div class="card-back">
+                <h3>Account 2</h3>
+                <div class="desc">
+                    Level 65<br>
+                    2 Legendary Skins<br>
+                    Good KD Ratio<br>
+                    Ranked Account
+                </div>
+            </div>
+        </div>
+    </div>
 
-<button class="buy-btn" onclick="buy('Account 1 - ₹999')">Buy Now</button>
-</div>
+    <!-- CARD 3 -->
+    <div class="card">
+        <div class="card-inner">
+            <div class="card-front">
+                <img src="img3.jpg">
+                <button class="buy-btn" onclick="buyNow()">BUY NOW</button>
+            </div>
+            <div class="card-back">
+                <h3>Account 3</h3>
+                <div class="desc">
+                    Level 80<br>
+                    Rare Bundle Collection<br>
+                    Max Gun Skins<br>
+                    Pro Player Account
+                </div>
+            </div>
+        </div>
+    </div>
 
-<!-- CARD 2 -->
-<div class="card">
+    <!-- CARD 4 -->
+    <div class="card">
+        <div class="card-inner">
+            <div class="card-front">
+                <img src="img4.jpg">
+                <button class="buy-btn" onclick="buyNow()">BUY NOW</button>
+            </div>
+            <div class="card-back">
+                <h3>Account 4</h3>
+                <div class="desc">
+                    Level 60<br>
+                    VIP Items<br>
+                    Limited Skins<br>
+                    High Rank Account
+                </div>
+            </div>
+        </div>
+    </div>
 
-<div class="flip-container" onclick="flip(this)">
-<div class="flip-inner">
-
-<div class="front">
-<img src="acc2.jpg">
-<div class="timer">⏳ <span id="t2"></span></div>
-</div>
-
-<div class="back">
-<h3>Account 2</h3>
-<div class="desc">✔ Legendary Skins</div>
-<p class="price">₹799</p>
-</div>
-
-</div>
-</div>
-
-<button class="buy-btn" onclick="buy('Account 2 - ₹799')">Buy Now</button>
-</div>
-
-<!-- CARD 3 -->
-<div class="card">
-
-<div class="flip-container" onclick="flip(this)">
-<div class="flip-inner">
-
-<div class="front">
-<img src="acc3.jpg">
-<div class="timer">⏳ <span id="t3"></span></div>
-</div>
-
-<div class="back">
-<h3>Account 3</h3>
-<div class="desc">✔ Rare Bundle</div>
-<p class="price">₹1299</p>
-</div>
-
-</div>
-</div>
-
-<button class="buy-btn" onclick="buy('Account 3 - ₹1299')">Buy Now</button>
-</div>
-
-<!-- CARD 4 -->
-<div class="card">
-
-<div class="flip-container" onclick="flip(this)">
-<div class="flip-inner">
-
-<div class="front">
-<img src="acc4.jpg">
-<div class="timer">⏳ <span id="t4"></span></div>
-</div>
-
-<div class="back">
-<h3>Account 4</h3>
-<div class="desc">✔ Elite Pass</div>
-<p class="price">₹599</p>
-</div>
-
-</div>
-</div>
-
-<button class="buy-btn" onclick="buy('Account 4 - ₹599')">Buy Now</button>
-</div>
-
-</div>
-
-<!-- QUOTES -->
-<div class="quotes">
-🔥 Victory is earned<br>
-💀 Play hard win harder<br>
-🎮 Legends are made in Free Fire
-</div>
-
-<!-- NEXT -->
-<button class="next-btn" onclick="nextPage()">Next Page ➡</button>
-
-<!-- POPUP -->
-<div id="popup" class="popup">
-<div class="popup-content">
-<h3>Select Seller</h3>
-<button class="buy-btn" onclick="sendWhatsApp(1)">TSK Gaming</button>
-<button class="buy-btn" onclick="sendWhatsApp(2)">Zoro Gaming</button>
-<button class="buy-btn" onclick="closePopup()" style="background:gray;">Cancel</button>
-</div>
 </div>
 
 <script>
+function buyNow() {
+    let choice = confirm("Choose:\nOK = TSK GAMING\nCancel = ZORO GAMING");
 
-let selectedProduct="";
-
-/* 🔥 FIXED WORKING FLIP */
-function flip(el){
-    let inner = el.querySelector(".flip-inner");
-    inner.classList.toggle("flipped");
+    if (choice) {
+        window.open("https://wa.me/919042458779", "_blank"); // TSK GAMING number
+    } else {
+        window.open("https://wa.me/917339213791", "_blank"); // ZORO GAMING number
+    }
 }
-
-/* BUY */
-function buy(p){
-    selectedProduct=p;
-    document.getElementById("popup").style.display="block";
-}
-
-/* CLOSE */
-function closePopup(){
-    document.getElementById("popup").style.display="none";
-}
-
-/* WHATSAPP */
-function sendWhatsApp(type){
-
-    let n1="919042458779";
-    let n2="917339213791";
-
-    let msg="🔥 I want to buy "+selectedProduct;
-
-    let url = (type===1)
-    ? `https://wa.me/${n1}?text=${encodeURIComponent(msg)}`
-    : `https://wa.me/${n2}?text=${encodeURIComponent(msg)}`;
-
-    window.location.href=url;
-}
-
-/* NEXT PAGE */
-function nextPage(){
-    window.location.href="page2.html";
-}
-
-/* TIMER */
-let t=24*60*60;
-
-function format(s){
-    let h=Math.floor(s/3600);
-    let m=Math.floor((s%3600)/60);
-    let sec=s%60;
-    return `${String(h).padStart(2,'0')}:${String(m).padStart(2,'0')}:${String(sec).padStart(2,'0')}`;
-}
-
-function run(){
-    if(t>0) t--;
-
-    document.getElementById("t1").innerHTML=format(t);
-    document.getElementById("t2").innerHTML=format(t);
-    document.getElementById("t3").innerHTML=format(t);
-    document.getElementById("t4").innerHTML=format(t);
-}
-
-setInterval(run,1000);
-
 </script>
 
 </body>
