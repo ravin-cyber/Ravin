@@ -29,20 +29,29 @@ h1{
 /* CARD */
 .card{
     width: 100%;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+/* FLIP AREA ONLY (IMAGE) */
+.inner{
+    width: 100%;
     height: 340px;
+    position: relative;
     perspective: 1000px;
 }
 
-.inner{
+/* FLIP */
+.inner.flip-active .flip-box{
+    transform: rotateY(180deg);
+}
+
+.flip-box{
     width: 100%;
     height: 100%;
     position: relative;
     transition: transform 0.8s;
     transform-style: preserve-3d;
-}
-
-.card.flipped .inner{
-    transform: rotateY(180deg);
 }
 
 /* FRONT + BACK */
@@ -52,23 +61,17 @@ h1{
     height: 100%;
     border-radius: 15px;
     backface-visibility: hidden;
-    overflow: hidden;
     box-shadow: 0 0 15px rgba(255,0,0,0.6);
 }
 
-/* ✅ FIX IMAGE FULL FIT */
-.front{
-    background: black;
-}
-
+/* FRONT IMAGE */
 .front img{
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center;
 }
 
-/* BACK SIDE */
+/* BACK */
 .back{
     background: #2a0000;
     transform: rotateY(180deg);
@@ -77,14 +80,11 @@ h1{
     text-align: left;
 }
 
-/* TITLE */
 .back h3{
-    margin: 5px 0;
     text-align: center;
     color: #ff4d4d;
 }
 
-/* DESCRIPTION */
 .desc{
     font-size: 12px;
     background: #1a0000;
@@ -93,12 +93,10 @@ h1{
     line-height: 1.4;
 }
 
-/* PRICE */
 .price{
     font-size: 18px;
     font-weight: bold;
     color: #ff4d4d;
-    margin-top: 6px;
 }
 
 .old-price{
@@ -107,17 +105,19 @@ h1{
     font-size: 13px;
 }
 
-/* TIMER */
 .sale{
     margin-top: 8px;
     font-size: 13px;
     color: #ffcc00;
     font-weight: bold;
-    text-align: center;
 }
 
-/* BUY BUTTON */
-button{
+/* ✅ BUY BUTTON (STATIC - NOT FLIPPING) */
+.buy-section{
+    padding: 10px;
+}
+
+.buy-btn{
     width: 100%;
     padding: 12px;
     background: #ff1a1a;
@@ -126,30 +126,7 @@ button{
     color: white;
     font-size: 16px;
     border-radius: 6px;
-    margin-top: 8px;
-}
-
-/* POPUP */
-.popup{
-    display:none;
-    position:fixed;
-    top:0;left:0;
-    width:100%;height:100%;
-    background:rgba(0,0,0,0.8);
-}
-
-.popup-content{
-    background:white;
-    color:black;
-    padding:20px;
-    margin:40% auto;
-    width:80%;
-    border-radius:10px;
-}
-
-.popup button{
-    background:red;
-    margin:5px 0;
+    cursor: pointer;
 }
 </style>
 </head>
@@ -161,123 +138,101 @@ button{
 <div class="container">
 
 <!-- CARD 1 -->
-<div class="card" onclick="flip(this)">
-<div class="inner">
+<div class="card">
 
-<!-- FRONT -->
-<div class="front">
-<img src="acc1.jpg">
-</div>
+    <!-- FLIP IMAGE ONLY -->
+    <div class="inner" onclick="flip(this)">
+        <div class="flip-box">
 
-<!-- BACK -->
-<div class="back">
-<h3>Account 1</h3>
+            <div class="front">
+                <img src="acc1.jpg">
+            </div>
 
-<div class="desc">
-✔ Rare Skins Available<br>
-✔ Level 70+ Account<br>
-✔ High Rank ID<br>
-✔ Full Access<br>
-✔ Safe Login
-</div>
+            <div class="back">
+                <h3>Account 1</h3>
 
-<p class="price">₹999 <span class="old-price">₹1499</span></p>
+                <div class="desc">
+                    ✔ Rare Skins<br>
+                    ✔ Level 70+ Account<br>
+                    ✔ High Rank ID<br>
+                    ✔ Full Access
+                </div>
 
-<div class="sale">
-⏳ Sale ends in: <span id="t1">24:00:00</span>
-</div>
+                <p class="price">₹999 <span class="old-price">₹1499</span></p>
 
-<button onclick="event.stopPropagation(); openPopup('Account 1 - ₹999')">
-Buy Now
-</button>
-</div>
+                <div class="sale">
+                    ⏳ Sale ends in: <span id="t1">24:00:00</span>
+                </div>
+            </div>
 
-</div>
+        </div>
+    </div>
+
+    <!-- ✅ BUY BUTTON OUTSIDE FLIP -->
+    <div class="buy-section">
+        <button class="buy-btn" onclick="openPopup('Account 1 - ₹999')">
+            Buy Now
+        </button>
+    </div>
+
 </div>
 
 <!-- CARD 2 -->
-<div class="card" onclick="flip(this)">
-<div class="inner">
+<div class="card">
 
-<div class="front">
-<img src="acc2.jpg">
-</div>
+    <div class="inner" onclick="flip(this)">
+        <div class="flip-box">
 
-<div class="back">
-<h3>Account 2</h3>
+            <div class="front">
+                <img src="acc2.jpg">
+            </div>
 
-<div class="desc">
-✔ Legendary Skins<br>
-✔ Premium ID<br>
-✔ High Rank
-</div>
+            <div class="back">
+                <h3>Account 2</h3>
 
-<p class="price">₹799 <span class="old-price">₹1199</span></p>
+                <div class="desc">
+                    ✔ Legendary Skins<br>
+                    ✔ Premium ID<br>
+                    ✔ High Rank
+                </div>
 
-<div class="sale">
-⏳ Sale ends in: <span id="t2">24:00:00</span>
-</div>
+                <p class="price">₹799 <span class="old-price">₹1199</span></p>
 
-<button onclick="event.stopPropagation(); openPopup('Account 2 - ₹799')">
-Buy Now
-</button>
-</div>
+                <div class="sale">
+                    ⏳ Sale ends in: <span id="t2">24:00:00</span>
+                </div>
+            </div>
 
-</div>
-</div>
+        </div>
+    </div>
 
-<!-- CARD 3 -->
-<div class="card" onclick="flip(this)">
-<div class="inner">
+    <div class="buy-section">
+        <button class="buy-btn" onclick="openPopup('Account 2 - ₹799')">
+            Buy Now
+        </button>
+    </div>
 
-<div class="front">
-<img src="acc3.jpg">
-</div>
-
-<div class="back">
-<h3>Account 3</h3>
-
-<div class="desc">
-✔ Rare Bundle<br>
-✔ Diamond Items<br>
-✔ Ranked Ready
-</div>
-
-<p class="price">₹1299 <span class="old-price">₹1799</span></p>
-
-<div class="sale">
-⏳ Sale ends in: <span id="t3">24:00:00</span>
-</div>
-
-<button onclick="event.stopPropagation(); openPopup('Account 3 - ₹1299')">
-Buy Now
-</button>
-</div>
-
-</div>
 </div>
 
 </div>
 
 <!-- POPUP -->
-<div id="popup" class="popup">
-<div class="popup-content">
-<h3>Select Seller</h3>
-<button onclick="sendWhatsApp(1)">TSK Gaming</button>
-<button onclick="sendWhatsApp(2)">Zoro Gaming</button>
-<button onclick="closePopup()">Cancel</button>
-</div>
+<div id="popup" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.8);">
+    <div style="background:white;color:black;padding:20px;margin:40% auto;width:80%;border-radius:10px;">
+        <h3>Select Seller</h3>
+        <button onclick="sendWhatsApp(1)">TSK Gaming</button>
+        <button onclick="sendWhatsApp(2)">Zoro Gaming</button>
+        <button onclick="closePopup()">Cancel</button>
+    </div>
 </div>
 
 <script>
 
-/* FLIP */
-function flip(card){
-    card.classList.toggle("flipped");
-}
-
-/* POPUP */
 let selectedProduct="";
+
+function flip(el){
+    el.classList.toggle("flip-active");
+}
 
 function openPopup(p){
     selectedProduct=p;
@@ -288,7 +243,6 @@ function closePopup(){
     document.getElementById("popup").style.display="none";
 }
 
-/* WHATSAPP */
 function sendWhatsApp(opt){
     let n1="919042458779";
     let n2="917339213791";
@@ -310,7 +264,6 @@ function runTimer(){
         let h=Math.floor(s/3600);
         let m=Math.floor((s%3600)/60);
         let sec=s%60;
-
         return String(h).padStart(2,'0')+":"+String(m).padStart(2,'0')+":"+String(sec).padStart(2,'0');
     }
 
@@ -318,7 +271,6 @@ function runTimer(){
 
     document.getElementById("t1").innerHTML=format(t);
     document.getElementById("t2").innerHTML=format(t);
-    document.getElementById("t3").innerHTML=format(t);
 }
 
 setInterval(runTimer,1000);
