@@ -14,16 +14,13 @@ body {
     text-align: center;
 }
 
-/* LOGO */
 .logo {
     width: 120px;
     margin-top: 10px;
 }
 
-/* TITLE */
 h1 {
     color: #ff2e2e;
-    margin: 10px 0;
 }
 
 /* GRID */
@@ -37,21 +34,23 @@ h1 {
 /* CARD */
 .card {
     perspective: 1000px;
+    cursor: pointer;
 }
 
 .card-inner {
     position: relative;
     width: 100%;
-    height: 340px;
+    height: 380px;
     transition: transform 0.8s;
     transform-style: preserve-3d;
 }
 
-.card:hover .card-inner {
+/* CLICK FLIP */
+.card.flipped .card-inner {
     transform: rotateY(180deg);
 }
 
-/* FRONT & BACK */
+/* FRONT + BACK */
 .card-front, .card-back {
     position: absolute;
     width: 100%;
@@ -69,14 +68,15 @@ h1 {
     flex-direction: column;
 }
 
-/* IMAGE FIX */
+/* BIG IMAGE FIX */
 .card-front img {
     width: 100%;
-    height: 180px;
+    height: 230px;   /* 👈 BIGGER IMAGE */
     object-fit: cover;
     object-position: center;
-    border-bottom: 2px solid red;
+    background: black;
 }
+
 /* TIMER */
 .timer {
     font-size: 13px;
@@ -96,7 +96,6 @@ h1 {
     color: white;
     border-radius: 8px;
     font-weight: bold;
-    cursor: pointer;
 }
 
 /* BACK */
@@ -139,38 +138,35 @@ h1 {
     border: none;
     border-radius: 8px;
     font-weight: bold;
-    cursor: pointer;
 }
 
-.tsk { background: #ff0000; color: white; }
-.zoro { background: #ff6600; color: white; }
+.tsk { background: red; color: white; }
+.zoro { background: orange; color: white; }
 .close { background: gray; color: white; }
 </style>
 </head>
 
 <body>
 
-<!-- LOGO -->
 <img src="logo.png" class="logo">
-
 <h1>🔥 TSK FREE FIRE ACCOUNTS 🔥</h1>
 
 <div class="container">
 
 <!-- CARD 1 -->
-<div class="card">
+<div class="card" onclick="flipCard(this)">
 <div class="card-inner">
 
 <div class="card-front">
-<img src="acc1.jpg">
-<div class="timer" data-time="86400">Loading...</div>
-<button class="buy-btn" onclick="openPopup()">BUY NOW</button>
+<img src="img1.jpg">
+<div class="timer" data-time="86400"></div>
+<button class="buy-btn" onclick="event.stopPropagation(); openPopup()">BUY NOW</button>
 </div>
 
 <div class="card-back">
 <h3>Account 1</h3>
 <div class="desc">
-Level 70 Account<br>
+Level 70<br>
 Rare Skins<br>
 Elite Pass<br>
 Heroic Rank
@@ -181,64 +177,46 @@ Heroic Rank
 </div>
 
 <!-- CARD 2 -->
-<div class="card">
+<div class="card" onclick="flipCard(this)">
 <div class="card-inner">
 <div class="card-front">
 <img src="img2.jpg">
-<div class="timer" data-time="86400">Loading...</div>
-<button class="buy-btn" onclick="openPopup()">BUY NOW</button>
+<div class="timer" data-time="86400"></div>
+<button class="buy-btn" onclick="event.stopPropagation(); openPopup()">BUY NOW</button>
 </div>
-
 <div class="card-back">
 <h3>Account 2</h3>
-<div class="desc">
-Level 65<br>
-Legendary Skins<br>
-Good KD<br>
-Ranked
-</div>
+<div class="desc">Level 65<br>Legendary Skins<br>Good KD</div>
 </div>
 </div>
 </div>
 
 <!-- CARD 3 -->
-<div class="card">
+<div class="card" onclick="flipCard(this)">
 <div class="card-inner">
 <div class="card-front">
 <img src="img3.jpg">
-<div class="timer" data-time="86400">Loading...</div>
-<button class="buy-btn" onclick="openPopup()">BUY NOW</button>
+<div class="timer" data-time="86400"></div>
+<button class="buy-btn" onclick="event.stopPropagation(); openPopup()">BUY NOW</button>
 </div>
-
 <div class="card-back">
 <h3>Account 3</h3>
-<div class="desc">
-Level 80<br>
-Rare Bundles<br>
-Max Guns<br>
-Pro Account
-</div>
+<div class="desc">Level 80<br>Rare Bundles<br>Pro Account</div>
 </div>
 </div>
 </div>
 
 <!-- CARD 4 -->
-<div class="card">
+<div class="card" onclick="flipCard(this)">
 <div class="card-inner">
 <div class="card-front">
 <img src="img4.jpg">
-<div class="timer" data-time="86400">Loading...</div>
-<button class="buy-btn" onclick="openPopup()">BUY NOW</button>
+<div class="timer" data-time="86400"></div>
+<button class="buy-btn" onclick="event.stopPropagation(); openPopup()">BUY NOW</button>
 </div>
-
 <div class="card-back">
 <h3>Account 4</h3>
-<div class="desc">
-Level 60<br>
-VIP Items<br>
-Rare Skins<br>
-High Rank
-</div>
+<div class="desc">Level 60<br>VIP Items<br>High Rank</div>
 </div>
 </div>
 </div>
@@ -256,48 +234,50 @@ High Rank
 </div>
 
 <script>
+
+// CLICK FLIP
+function flipCard(card){
+    card.classList.toggle("flipped");
+}
+
 // POPUP
-function openPopup() {
+function openPopup(){
     document.getElementById("popup").style.display = "flex";
 }
-function closePopup() {
+function closePopup(){
     document.getElementById("popup").style.display = "none";
 }
-function goTSK() {
-    window.open("https://wa.me/919042458779", "_blank");
+
+function goTSK(){
+    window.open("https://wa.me/919042458779","_blank");
 }
-function goZORO() {
-    window.open("https://wa.me/917339213791", "_blank");
-}
-
-// TIMER FUNCTION
-function startTimers() {
-    const timers = document.querySelectorAll(".timer");
-
-    timers.forEach(timer => {
-        let time = parseInt(timer.getAttribute("data-time"));
-
-        setInterval(() => {
-            if (time > 0) {
-                time--;
-
-                let hrs = Math.floor(time / 3600);
-                let min = Math.floor((time % 3600) / 60);
-                let sec = time % 60;
-
-                timer.innerText =
-                    "Sale ends in: " +
-                    String(hrs).padStart(2, '0') + ":" +
-                    String(min).padStart(2, '0') + ":" +
-                    String(sec).padStart(2, '0');
-            } else {
-                timer.innerText = "SALE ENDED";
-            }
-        }, 1000);
-    });
+function goZORO(){
+    window.open("https://wa.me/917339213791","_blank");
 }
 
-startTimers();
+// TIMER
+document.querySelectorAll(".timer").forEach(timer=>{
+    let time = 86400;
+
+    setInterval(()=>{
+        if(time > 0){
+            time--;
+
+            let h = Math.floor(time/3600);
+            let m = Math.floor((time%3600)/60);
+            let s = time%60;
+
+            timer.innerText =
+            "Sale ends: " +
+            String(h).padStart(2,'0')+":"+
+            String(m).padStart(2,'0')+":"+
+            String(s).padStart(2,'0');
+        } else {
+            timer.innerText = "SALE ENDED";
+        }
+    },1000);
+});
+
 </script>
 
 </body>
